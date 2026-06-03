@@ -1,4 +1,4 @@
-// React import removed
+import { Routes, Route } from 'react-router-dom';
 import { Navbar } from './components/layout/Navbar';
 import { Hero } from './sections/Hero';
 import { About } from './sections/About';
@@ -7,8 +7,9 @@ import { Experience } from './sections/Experience';
 import { Projects } from './sections/Projects';
 import { Certifications } from './sections/Certifications';
 import { Contact } from './sections/Contact';
+import { VajraStocksPage } from './pages/VajraStocksPage';
 
-function App() {
+function PortfolioHome() {
   return (
     <div className="min-h-screen bg-carbon selection:bg-emerald-accent/30 selection:text-emerald-accent">
       <Navbar />
@@ -22,6 +23,15 @@ function App() {
         <Contact />
       </main>
     </div>
+  );
+}
+
+function App() {
+  return (
+    <Routes>
+      <Route path="/" element={<PortfolioHome />} />
+      <Route path="/vajrastocks" element={<VajraStocksPage />} />
+    </Routes>
   );
 }
 

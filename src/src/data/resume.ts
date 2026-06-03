@@ -5,7 +5,7 @@ export const resumeData = {
     email: "abhishek4official@gmail.com",
     phone: "+91 8860817128",
     linkedin: "https://linkedin.com/in/Abhishek", // Assuming standard URL structure based on text
-    summary: "Senior Full Stack & AI Solutions Architect with over 11 years of experience designing scalable cloud-native systems. Specialized in Azure Microservices, Python/FastAPI, and Enterprise AI solutions using GPT-4 and LangChain. Proven track record in technical leadership, architecture design, and reducing technical debt.",
+    summary: "Senior Full Stack & AI Solutions Architect with over 11 years of experience designing scalable cloud-native systems. Specialized in Azure Microservices, Python/FastAPI, and Enterprise AI solutions using GPT-4, LangChain, and Microsoft Agent Framework. Built production-grade quantitative stock analysis platforms powered by multi-agent AI pipelines, real-time data streaming, and advanced charting engines for Indian equity markets.",
 
     expertise: [
         {
@@ -14,7 +14,11 @@ export const resumeData = {
         },
         {
             category: "AI & LLM Systems",
-            skills: ["OpenAI (GPT-4)", "Google Gemini", "LangChain", "LangGraph", "Azure AI Foundry", "Semantic Search", "RAG Systems"]
+            skills: ["OpenAI (GPT-4)", "Google Gemini", "LangChain", "LangGraph", "Azure AI Foundry", "Microsoft Agent Framework", "Ollama (Local LLMs)", "RAG Systems", "Multi-Agent DAG Orchestration"]
+        },
+        {
+            category: "Quantitative & Data",
+            skills: ["pandas-ta", "TradingView Lightweight Charts", "yFinance", "Technical Indicators (RSI, MACD, Bollinger Bands)", "SQL Server", "Alembic Migrations", "SSE Streaming"]
         },
         {
             category: "Backend Engineering",
@@ -88,6 +92,21 @@ export const resumeData = {
     ],
 
     projects: [
+        {
+            title: "VajraStocks — NSE Quantitative Analysis Platform",
+            description: "Production-grade, full-stack stock research platform for the Indian equity market (NSE). Features 4 chart types (Candlesticks, Heikin-Ashi, Renko, Three Line Break), a 7-agent AI research pipeline with real-time SSE streaming, sub-5ms technical screener across 2,365+ NSE stocks, and a resilient yFinance data synchronization engine with SQL Server.",
+            techStack: ["React 19", "TypeScript", "FastAPI", "Python", "SQL Server", "Microsoft Agent Framework", "Ollama", "TradingView Charts", "pandas-ta", "Tailwind CSS", "Zustand", "SSE"],
+            outcome: "Built a self-hosted institutional-grade quant platform rivaling TradingView & Screener.in — uniquely powered by a local 7-agent AI DAG that streams live quantitative investment reports.",
+            github: "https://github.com/abhishek4official/VajraStocks",
+            features: [
+                "4 advanced chart modes: Candlestick, Heikin-Ashi, Renko, Three Line Break",
+                "11-parameter technical screener with sub-5ms response using denormalized snapshot layer",
+                "7 specialized AI agents (orchestrator, report, trade planner, backtester, market regime, SQL agent) orchestrated as a MAF DAG",
+                "Real-time SSE streaming of AI agent progress and investment reports",
+                "Resilient incremental yFinance sync engine with per-ticker fallback loops and audit logs",
+                "Full RSI, MACD, SMA 20/50/200, EMA 9/21, Bollinger Bands, ATR indicator suite"
+            ]
+        },
         {
             title: "Dynamic Reporting System with LLMs",
             description: "Intelligent system utilizing LLMs to provide adaptive, data-driven reports with natural language query support.",
