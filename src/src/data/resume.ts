@@ -94,17 +94,18 @@ export const resumeData = {
     projects: [
         {
             title: "VajraStocks — NSE Quantitative Analysis Platform",
-            description: "Production-grade, full-stack stock research platform for the Indian equity market (NSE). Features 4 chart types (Candlesticks, Heikin-Ashi, Renko, Three Line Break), a 7-agent AI research pipeline with real-time SSE streaming, sub-5ms technical screener across 2,365+ NSE stocks, and a resilient yFinance data synchronization engine with SQL Server.",
-            techStack: ["React 19", "TypeScript", "FastAPI", "Python", "SQL Server", "Microsoft Agent Framework", "Ollama", "TradingView Charts", "pandas-ta", "Tailwind CSS", "Zustand", "SSE"],
-            outcome: "Built a self-hosted institutional-grade quant platform rivaling TradingView & Screener.in — uniquely powered by a local 7-agent AI DAG that streams live quantitative investment reports.",
+            description: "A local-first, open-source stock research platform for Indian equity markets. Tracks 2,365+ NSE stocks with 4 chart types, an 11-parameter technical screener that responds in under 5ms, and a 7-agent AI pipeline that generates institutional-grade investment reports entirely on your machine — no subscriptions, no cloud dependency.",
+            techStack: ["React 19", "TypeScript", "FastAPI", "Python", "SQLite", "Ollama", "TradingView Charts", "pandas-ta", "PyInstaller", "GitHub Actions", "Tailwind CSS", "Zustand"],
+            outcome: "A self-hosted alternative to TradingView and Screener.in — ships as a one-click installer for Windows, Linux, and macOS. The AI analysis pipeline runs fully offline using local LLMs.",
             github: "https://github.com/abhishek4official/VajraStocks",
+            releases: "https://github.com/abhishek4official/VajraStocks/releases/tag/v1.0.0",
             features: [
-                "4 advanced chart modes: Candlestick, Heikin-Ashi, Renko, Three Line Break",
-                "11-parameter technical screener with sub-5ms response using denormalized snapshot layer",
-                "7 specialized AI agents (orchestrator, report, trade planner, backtester, market regime, SQL agent) orchestrated as a MAF DAG",
-                "Real-time SSE streaming of AI agent progress and investment reports",
-                "Resilient incremental yFinance sync engine with per-ticker fallback loops and audit logs",
-                "Full RSI, MACD, SMA 20/50/200, EMA 9/21, Bollinger Bands, ATR indicator suite"
+                "4 chart types: Candlestick, Heikin-Ashi, Renko (ATR-calibrated), Three Line Break",
+                "11-parameter screener with sub-5ms response via denormalized snapshot cache",
+                "7-agent AI DAG: orchestrator, SQL specialist, market regime, trade planner, backtester, quant researcher, report writer",
+                "Real-time SSE streaming of agent execution and investment reports",
+                "Incremental yFinance sync with per-ticker fallback loops and full audit trail",
+                "One-click installers: Windows .exe, Linux .deb/.rpm/.AppImage, macOS .dmg"
             ]
         },
         {

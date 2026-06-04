@@ -29,8 +29,61 @@ const ExternalLink = () => (
 const STATS = [
     { value: '2,365+', label: 'NSE Stocks tracked' },
     { value: '7',      label: 'Autonomous AI Agents' },
-    { value: '4',      label: 'Advanced Chart Types' },
-    { value: '< 5ms',   label: 'Screener response time' },
+    { value: '4',      label: 'Chart Types' },
+    { value: '< 5ms',  label: 'Screener response' },
+];
+
+const DOWNLOADS = [
+    {
+        os: 'Windows',
+        icon: '🪟',
+        label: 'Windows 10 / 11',
+        file: 'VajraStocks-Setup.exe',
+        desc: 'One-click installer with Start Menu & Desktop shortcut',
+        url: 'https://github.com/abhishek4official/VajraStocks/releases/download/v1.0.0/VajraStocks-Setup.exe',
+        color: 'border-blue-500/30 hover:border-blue-500/60 bg-blue-500/5',
+        badge: 'bg-blue-500/10 text-blue-400 border-blue-500/20',
+    },
+    {
+        os: 'Linux',
+        icon: '🐧',
+        label: 'Debian / Ubuntu',
+        file: 'VajraStocks.deb',
+        desc: 'dpkg installer — installs to /opt/vajrastocks',
+        url: 'https://github.com/abhishek4official/VajraStocks/releases/download/v1.0.0/VajraStocks.deb',
+        color: 'border-orange-500/30 hover:border-orange-500/60 bg-orange-500/5',
+        badge: 'bg-orange-500/10 text-orange-400 border-orange-500/20',
+    },
+    {
+        os: 'Linux',
+        icon: '🐧',
+        label: 'Fedora / RHEL',
+        file: 'VajraStocks.rpm',
+        desc: 'RPM package for Red Hat-based distros',
+        url: 'https://github.com/abhishek4official/VajraStocks/releases/download/v1.0.0/VajraStocks.rpm',
+        color: 'border-orange-500/30 hover:border-orange-500/60 bg-orange-500/5',
+        badge: 'bg-orange-500/10 text-orange-400 border-orange-500/20',
+    },
+    {
+        os: 'Linux',
+        icon: '🐧',
+        label: 'Universal Linux',
+        file: 'VajraStocks.AppImage',
+        desc: 'Portable — runs on any Linux distro, no install needed',
+        url: 'https://github.com/abhishek4official/VajraStocks/releases/download/v1.0.0/VajraStocks.AppImage',
+        color: 'border-orange-500/30 hover:border-orange-500/60 bg-orange-500/5',
+        badge: 'bg-orange-500/10 text-orange-400 border-orange-500/20',
+    },
+    {
+        os: 'macOS',
+        icon: '🍎',
+        label: 'macOS 12+',
+        file: 'VajraStocks.dmg',
+        desc: 'Drag-to-Applications DMG for Intel & Apple Silicon',
+        url: 'https://github.com/abhishek4official/VajraStocks/releases/download/v1.0.0/VajraStocks.dmg',
+        color: 'border-slate-500/30 hover:border-slate-400/60 bg-slate-500/5',
+        badge: 'bg-slate-500/10 text-slate-400 border-slate-500/20',
+    },
 ];
 
 const CAPABILITIES = [
@@ -204,9 +257,8 @@ export const VajraStocksPage = () => {
                     <div className="hidden md:flex items-center gap-8 text-xs font-semibold text-slate-400 uppercase tracking-widest">
                         <a href="#overview" className="hover:text-white transition-colors">Overview</a>
                         <a href="#capabilities" className="hover:text-white transition-colors">Capabilities</a>
-                        <a href="#lab" className="hover:text-white transition-colors">Charting Lab</a>
                         <a href="#orchestration" className="hover:text-white transition-colors">AI Pipeline</a>
-                        <a href="#architecture" className="hover:text-white transition-colors">Architecture</a>
+                        <a href="#download" className="hover:text-emerald-400 transition-colors text-emerald-500">Download</a>
                     </div>
 
                     <a
@@ -236,27 +288,33 @@ export const VajraStocksPage = () => {
                     </h1>
 
                     <p className="text-lg sm:text-xl text-slate-400 max-w-2xl mx-auto mb-10 leading-relaxed font-normal">
-                        A state-of-the-art quantitative stock research and technical analysis platform built to process Indian equities. Complete with a 7-agent AI orchestration pipeline, sub-5ms screeners, and modern charting models.
+                        A local-first, open-source NSE stock research platform. Screens 2,365+ Indian equities in under 5ms, charts with 4 advanced models, and generates AI investment reports entirely on your machine — no cloud, no subscriptions.
                     </p>
 
                     {/* CTAs */}
                     <div className="flex items-center justify-center flex-wrap gap-4 mb-20">
                         <a
+                            href="#download"
+                            className="flex items-center gap-3 px-7 py-3.5 rounded-xl bg-white text-slate-950 font-bold text-sm hover:bg-slate-100 transition-all shadow-xl hover:scale-[1.02] active:scale-[0.98]"
+                        >
+                            <svg viewBox="0 0 20 20" fill="currentColor" className="w-4 h-4"><path fillRule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clipRule="evenodd" /></svg>
+                            Download Free
+                        </a>
+                        <a
                             href="https://github.com/abhishek4official/VajraStocks"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="flex items-center gap-3 px-7 py-3.5 rounded-xl bg-white text-slate-950 font-bold text-sm hover:bg-slate-100 transition-all shadow-xl hover:scale-[1.02] active:scale-[0.98]"
+                            className="flex items-center gap-2 px-7 py-3.5 rounded-xl border border-slate-800 bg-slate-950/60 text-slate-300 hover:text-white hover:border-slate-700 font-semibold text-sm transition-all hover:scale-[1.02] active:scale-[0.98]"
                         >
                             <GitHub />
-                            Get Started
-                            <ExternalLink />
+                            <span>View on GitHub</span>
                         </a>
                         <a
                             href="#capabilities"
-                            className="flex items-center gap-2 px-7 py-3.5 rounded-xl border border-slate-800 bg-slate-950/60 text-slate-300 hover:text-white hover:border-slate-700 font-semibold text-sm transition-all hover:scale-[1.02] active:scale-[0.98]"
+                            className="flex items-center gap-2 px-7 py-3.5 rounded-xl border border-slate-800/50 bg-transparent text-slate-500 hover:text-slate-300 hover:border-slate-700 font-semibold text-sm transition-all hover:scale-[1.02] active:scale-[0.98]"
                         >
                             <span>Explore Platform</span>
-                            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4 text-slate-400">
+                            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4">
                                 <path d="M8 3v10M4 9l4 4 4-4" />
                             </svg>
                         </a>
@@ -818,32 +876,99 @@ export const VajraStocksPage = () => {
                 </div>
             </section>
 
+            {/* ── DOWNLOAD SECTION ── */}
+            <section id="download" className="py-24 px-6 border-t border-slate-900/80 bg-slate-950/30">
+                <div className="max-w-5xl mx-auto">
+                    <div className="text-center mb-14">
+                        <p className="text-xs font-bold uppercase tracking-widest text-emerald-400 mb-3">Free & Open Source</p>
+                        <h2 className="text-3xl md:text-5xl font-extrabold text-white tracking-tight">Download VajraStocks</h2>
+                        <p className="text-slate-400 mt-4 max-w-xl mx-auto text-sm font-normal">
+                            One-click installers for every platform. No Python or Node.js required — everything is bundled.
+                            Available on{' '}
+                            <a href="https://github.com/abhishek4official/VajraStocks/releases/tag/v1.0.0" target="_blank" rel="noopener noreferrer" className="text-emerald-400 hover:underline">
+                                GitHub Releases v1.0.0
+                            </a>.
+                        </p>
+                    </div>
+
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-10">
+                        {DOWNLOADS.map((dl, i) => (
+                            <a
+                                key={i}
+                                href={dl.url}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className={`group flex flex-col gap-3 p-5 rounded-2xl border ${dl.color} transition-all duration-300 hover:-translate-y-1 hover:shadow-xl`}
+                            >
+                                <div className="flex items-center justify-between">
+                                    <div className="flex items-center gap-2">
+                                        <span className="text-xl">{dl.icon}</span>
+                                        <span className="text-sm font-extrabold text-white">{dl.label}</span>
+                                    </div>
+                                    <span className={`text-[9px] font-black uppercase tracking-widest px-2 py-0.5 rounded border ${dl.badge}`}>
+                                        {dl.os}
+                                    </span>
+                                </div>
+                                <p className="text-[11px] text-slate-400 leading-relaxed font-normal">{dl.desc}</p>
+                                <div className="flex items-center justify-between mt-auto pt-2 border-t border-white/[0.05]">
+                                    <span className="font-mono text-[10px] text-slate-500">{dl.file}</span>
+                                    <span className="flex items-center gap-1 text-[10px] font-bold text-slate-400 group-hover:text-white transition-colors">
+                                        Download
+                                        <svg viewBox="0 0 20 20" fill="currentColor" className="w-3.5 h-3.5"><path fillRule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clipRule="evenodd" /></svg>
+                                    </span>
+                                </div>
+                            </a>
+                        ))}
+                    </div>
+
+                    <div className="text-center">
+                        <a
+                            href="https://github.com/abhishek4official/VajraStocks/releases/tag/v1.0.0"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-2 text-xs font-bold text-slate-400 hover:text-white transition-colors"
+                        >
+                            <GitHub />
+                            View all release assets and checksums on GitHub
+                            <ExternalLink />
+                        </a>
+                    </div>
+                </div>
+            </section>
+
             {/* ── PERSISTENT CTA CARD ── */}
             <section className="py-28 px-6 border-t border-slate-900/80 text-center relative overflow-hidden bg-slate-950/20">
                 {/* Visual glow backdrop */}
                 <div className="absolute inset-0 bg-gradient-to-t from-purple-900/5 to-transparent pointer-events-none" />
                 <div className="max-w-3xl mx-auto relative z-10">
                     <h2 className="text-3xl sm:text-5xl font-extrabold text-white mb-6 tracking-tight">
-                        Self-Host Your Investment Research
+                        Your Personal Trading Terminal
                     </h2>
                     <p className="text-slate-400 mb-10 text-base max-w-lg mx-auto leading-relaxed">
-                        VajraStocks is fully open-source and modular. Run the complete pipeline locally using SQLite/LocalDB, yFinance sync caches, and local models.
+                        VajraStocks is free, open-source, and runs entirely on your machine. No subscriptions. No data sent to the cloud. Just install and start screening.
                     </p>
 
                     <div className="flex flex-wrap items-center justify-center gap-4">
                         <a
+                            href="#download"
+                            className="flex items-center gap-2 px-8 py-4 rounded-xl bg-white text-slate-950 font-bold text-sm hover:bg-slate-100 hover:scale-[1.02] active:scale-[0.98] transition-all shadow-2xl"
+                        >
+                            <svg viewBox="0 0 20 20" fill="currentColor" className="w-4 h-4"><path fillRule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clipRule="evenodd" /></svg>
+                            Download Free — v1.0.0
+                        </a>
+                        <a
                             href="https://github.com/abhishek4official/VajraStocks"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="flex items-center gap-2 px-8 py-4 rounded-xl bg-white text-slate-950 font-bold text-sm hover:bg-slate-100 hover:scale-[1.02] active:scale-[0.98] transition-all shadow-2xl"
+                            className="flex items-center gap-2 px-8 py-4 rounded-xl border border-slate-800 bg-slate-950/50 text-slate-300 hover:text-white hover:border-slate-700 font-semibold text-sm hover:scale-[1.02] active:scale-[0.98] transition-all"
                         >
                             <GitHub />
-                            Star & Clone Repository
+                            Star on GitHub
                             <ExternalLink />
                         </a>
                         <Link
                             to="/"
-                            className="flex items-center gap-2 px-8 py-4 rounded-xl border border-slate-800 bg-slate-950/50 text-slate-300 hover:text-white hover:border-slate-700 font-semibold text-sm hover:scale-[1.02] active:scale-[0.98] transition-all"
+                            className="flex items-center gap-2 px-8 py-4 rounded-xl border border-slate-800/50 bg-transparent text-slate-500 hover:text-slate-300 hover:border-slate-700 font-semibold text-sm hover:scale-[1.02] active:scale-[0.98] transition-all"
                         >
                             <ArrowLeft />
                             Back to Portfolio
@@ -862,7 +987,7 @@ export const VajraStocksPage = () => {
                         </Link>{' '}
                         · MIT License
                     </span>
-                    <span>React 19 · Zustand · FastAPI · LocalDB · Microsoft Agent Framework</span>
+                    <span>React 19 · FastAPI · Python · SQLite · Ollama · TradingView Charts · GitHub Actions</span>
                 </div>
             </footer>
         </div>
