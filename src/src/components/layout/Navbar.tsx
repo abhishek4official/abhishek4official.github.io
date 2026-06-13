@@ -32,7 +32,7 @@ export const Navbar = () => {
     return (
         <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled || mobileMenuOpen ? 'bg-[#07080b]/75 backdrop-blur-lg border-b border-white/[0.06] py-4 shadow-md' : 'bg-transparent py-6'}`}>
             <div className="container-custom flex justify-between items-center">
-                <a href="#" className="text-xl font-bold tracking-tight text-white hover:text-emerald-accent transition-colors z-50 relative">
+                <a href="#" className="text-xl font-bold tracking-tight text-white hover:text-amber-accent transition-colors z-50 relative">
                     {resumeData.name}
                 </a>
 
@@ -77,7 +77,7 @@ export const Navbar = () => {
                         <a
                             key={link.name}
                             href={link.href}
-                            className="text-2xl font-medium text-slate-200 hover:text-emerald-400 transition-colors"
+                            className="text-2xl font-medium text-slate-200 hover:text-amber-400 transition-colors"
                             onClick={() => setMobileMenuOpen(false)}
                         >
                             {link.name}
@@ -85,7 +85,7 @@ export const Navbar = () => {
                     ))}
                     <a
                         href="#contact"
-                        className="text-2xl font-medium text-emerald-400 hover:text-emerald-500 transition-colors"
+                        className="text-2xl font-medium text-amber-400 hover:text-amber-500 transition-colors"
                         onClick={() => setMobileMenuOpen(false)}
                     >
                         Contact

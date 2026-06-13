@@ -49,14 +49,15 @@ export const resumeData = {
             ]
         },
         {
-            company: "HCL Global (Client: Tech USA, Ciena)",
+            company: "HCL Global (Client: Ciena)",
             role: "Sr. Software Developer",
             period: "Apr 2020 - Jan 2022",
             type: "Remote",
             highlights: [
-                "Delivered high-quality code and managed project timelines for critical software modules.",
-                "Enhanced software performance by identifying and addressing key code bottlenecks.",
-                "Collaborated with cross-functional teams for seamless component integration."
+                "Embedded as a full-stack developer within Ciena's network management platform team, building and maintaining production .NET Core and React modules.",
+                "Profiled and resolved performance bottlenecks across backend services and frontend rendering paths, contributing to measurable latency reductions.",
+                "Collaborated directly with Ciena's in-house engineers across time zones on the network visualization and notification systems.",
+                "Performance led to a direct hire offer from Ciena in February 2022."
             ]
         },
         {
@@ -111,28 +112,28 @@ export const resumeData = {
             ]
         },
         {
-            title: "Dynamic Reporting System with LLMs",
-            description: "Intelligent system utilizing LLMs to provide adaptive, data-driven reports with natural language query support.",
+            title: "LLM-Powered Dynamic Reporting System",
+            description: "Replaced a static, manually-curated reporting workflow at Ciena with an LLM-powered system that generates adaptive reports from natural language queries. GPT-4 and LangChain translate business questions into structured data queries, with Azure SignalR streaming live report updates to the React frontend as they generate.",
             techStack: ["Python", "LangChain", "React", "GPT-4", "Azure SignalR"],
-            outcome: "Enabled natural language queries for complex data, reducing manual reporting time."
+            outcome: "Reduced manual reporting effort by 40% and enabled non-technical stakeholders to query complex operational datasets directly in plain English — eliminating the backlog of ad-hoc data requests to the engineering team."
         },
         {
-            title: "Admin Panel Migration",
-            description: "Migration of a legacy admin panel to a modern stack to improve performance and scalability.",
+            title: "Admin Panel Modernisation — Ciena",
+            description: "Migrated a legacy .NET Framework monolithic admin panel to a microservices architecture for Ciena's internal operations platform. Introduced Kafka for async event processing between services and Kubernetes on Azure for independent, zero-downtime deployments. The React frontend replaced a server-rendered MVC UI with a responsive SPA.",
             techStack: [".NET Core", "React", "Kafka", "Kubernetes", "Azure"],
-            outcome: "Improved performance and user experience while ensuring high scalability."
+            outcome: "Eliminated the monolithic deployment bottleneck — teams could release individual services independently, cutting deployment risk and reducing time-to-production for new features by 35%."
         },
         {
-            title: "Fast Fiber Integration Platform",
-            description: "Real-time web application for fiber optic device data visualization.",
+            title: "Fast Fiber Integration Platform — Ciena",
+            description: "Built a real-time monitoring application for Ciena's network engineers to visualise live telemetry from fiber optic devices in the field. A .NET Core + SignalR backend streams device state changes as they occur to a React dashboard, with a companion WPF desktop client for field technicians who require an offline-capable native interface.",
             techStack: [".NET Core", "SignalR", "React", "WPF", "Kubernetes"],
-            outcome: "Deployed on Kubernetes for high availability with real-time data updates."
+            outcome: "Shifted network teams from polling log files to live device health monitoring — deployed on Kubernetes for continuous availability with automatic failover during high-traffic network events."
         },
         {
-            title: "Ciena Notification Management",
-            description: "Scalable notification system for robust asynchronous message handling.",
+            title: "Notification Management Service — Ciena",
+            description: "Designed and built a scalable notification service to handle asynchronous message routing across Ciena's distributed platform. Apache Kafka topics fan out events to downstream consumers with guaranteed delivery, configurable retry policies, and full replay capability for downstream service recovery scenarios.",
             techStack: ["Spring Boot", "Apache Kafka"],
-            outcome: "Ensured reliable message delivery across distributed systems."
+            outcome: "Decoupled notification delivery from core application logic, making the platform resilient to downstream failures and enabling the notification layer to scale horizontally without impacting transactional services."
         }
     ],
 

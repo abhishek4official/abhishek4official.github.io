@@ -1,12 +1,12 @@
 @import "tailwindcss";
 
 @theme {
-  --font-sans: 'Quicksand', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+  --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 
   /* Carbon Dark Theme Variables */
   --color-carbon: #07080b;
   --color-surface: #0e1016;
-  --color-emerald-accent: #10b981;
+  --color-accent: #f59e0b;
   --color-gold-accent: #8b5cf6;
 }
 

@@ -4,64 +4,128 @@ import path from 'path';
 const distDir = path.resolve('dist');
 const rootDir = path.resolve('..');
 
-// 1. Create dist/vajrastocks/index.html
-const distVajra = path.join(distDir, 'vajrastocks');
-if (!fs.existsSync(distVajra)) {
-  fs.mkdirSync(distVajra, { recursive: true });
-}
-fs.copyFileSync(
-  path.join(distDir, 'index.html'),
-  path.join(distVajra, 'index.html')
-);
-console.log('Copied index.html to dist/vajrastocks/index.html');
+// ── Read built index.html to extract versioned asset tags ──────────────────
+const builtHtml = fs.readFileSync(path.join(distDir, 'index.html'), 'utf-8');
 
-// Helper to recursively copy directories
+// Extract fingerprinted CSS <link> and JS <script> tags
+const cssTag   = (builtHtml.match(/<link rel="stylesheet"[^>]*\/assets\/[^>]*>/) || [''])[0];
+const jsTag    = (builtHtml.match(/<script type="module"[^>]*\/assets\/[^>]*><\/script>/) || [''])[0];
+const preloads = [...builtHtml.matchAll(/<link rel="modulepreload"[^>]*>/g)].map(m => '  ' + m[0]).join('\n');
+
+// ── 1. Generate vajrastocks/index.html with VajraStocks-specific SEO ───────
+const distVajra = path.join(distDir, 'vajrastocks');
+if (!fs.existsSync(distVajra)) fs.mkdirSync(distVajra, { recursive: true });
+
+const vajraHtml = `<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VajraStocks &#8212; NSE Quantitative Analysis &amp; Screening Platform</title>
+  <meta name="description" content="Free, open-source quantitative stock research platform for Indian equity markets. Screens 2,365+ NSE stocks in under 5ms with EOD data, 4 chart types, AI-powered multi-agent analysis, 6 quant strategies, portfolio risk management, and ML-based ranking &#8212; all local, no subscriptions." />
+  <meta name="keywords" content="VajraStocks, NSE stock screener, Indian stock analysis, quantitative trading, swing trading tool, Nifty screener, technical analysis India, stock research platform, EOD stock data, open source trading, portfolio risk management, AI stock research, Heikin-Ashi, Renko, MACD screener, RSI screener, LightGBM stock ranking" />
+  <meta name="author" content="Abhishek Kumar" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://abhishek4official.github.io/vajrastocks/" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://abhishek4official.github.io/vajrastocks/" />
+  <meta property="og:site_name" content="VajraStocks" />
+  <meta property="og:title" content="VajraStocks &#8212; NSE Quantitative Analysis &amp; Screening Platform" />
+  <meta property="og:description" content="Free, open-source platform for Indian equity research. Screen 2,365+ NSE stocks in under 5ms, chart with 4 models, run AI multi-agent reports, and manage portfolio risk &#8212; entirely on your machine." />
+  <meta property="og:image" content="https://abhishek4official.github.io/vajrastocks_hero.png" />
+  <meta property="og:image:width" content="1280" />
+  <meta property="og:image:height" content="800" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="VajraStocks &#8212; NSE Quantitative Analysis &amp; Screening Platform" />
+  <meta name="twitter:description" content="Free local-first NSE stock research: 2,365+ stocks, 4 chart types, 7 AI agents, 6 quant strategies &#8212; no subscriptions, no cloud." />
+  <meta name="twitter:image" content="https://abhishek4official.github.io/vajrastocks_hero.png" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "VajraStocks",
+    "alternateName": "VajraStocks NSE Screener",
+    "applicationCategory": "FinanceApplication",
+    "applicationSubCategory": "Stock Screener",
+    "operatingSystem": "Windows 10, Windows 11, macOS 12+, Linux",
+    "description": "Free, open-source quantitative stock research platform for Indian equity markets. Screens 2,365+ NSE stocks in under 5ms with EOD data, 4 chart types, AI-powered multi-agent analysis, 6 quant strategies, portfolio risk management, and ML-based ranking — all local, no subscriptions.",
+    "url": "https://abhishek4official.github.io/vajrastocks/",
+    "downloadUrl": "https://github.com/abhishek4official/VajraStocks/releases",
+    "softwareVersion": "1.3.0",
+    "dateModified": "2026-06-14",
+    "author": {
+      "@type": "Person",
+      "name": "Abhishek Kumar",
+      "url": "https://abhishek4official.github.io/"
+    },
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "INR",
+      "availability": "https://schema.org/InStock"
+    },
+    "featureList": [
+      "Screen 2,365+ NSE stocks in under 5ms",
+      "4 chart types: Candlestick, Heikin-Ashi, Renko (ATR-brick), Three Line Break",
+      "7 autonomous AI agents powered by local Ollama LLMs",
+      "6 quantitative strategies: RS MA Cross, Minervini, 52-Week, Weinstein, Cross-Sectional, Dual Momentum",
+      "Portfolio risk management with Zerodha Holdings CSV import",
+      "ML model training: LightGBM 6-fold walk-forward validation on 489,296 rows",
+      "End-of-Day data via yFinance — updated post 3:30 PM IST",
+      "Local-first — no cloud dependency, no subscriptions"
+    ],
+    "screenshot": "https://abhishek4official.github.io/vajrastocks_explorer.png",
+    "isAccessibleForFree": true,
+    "license": "https://opensource.org/licenses/MIT",
+    "codeRepository": "https://github.com/abhishek4official/VajraStocks",
+    "keywords": "NSE screener, Indian stock analysis, quantitative trading, swing trading, Nifty screener, technical analysis India, EOD stock data, open source trading, Heikin-Ashi, Renko, LightGBM"
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+${preloads}
+  ${cssTag}
+</head>
+<body>
+  <div id="root"></div>
+  ${jsTag}
+</body>
+</html>`;
+
+fs.writeFileSync(path.join(distVajra, 'index.html'), vajraHtml);
+console.log('Generated vajrastocks/index.html with VajraStocks SEO meta tags');
+
+// ── Helper: recursive copy ─────────────────────────────────────────────────
 function copyDirSync(src, dest) {
   fs.mkdirSync(dest, { recursive: true });
-  const entries = fs.readdirSync(src, { withFileTypes: true });
-
-  for (let entry of entries) {
-    const srcPath = path.join(src, entry.name);
-    const destPath = path.join(dest, entry.name);
-
-    if (entry.isDirectory()) {
-      copyDirSync(srcPath, destPath);
-    } else {
-      fs.copyFileSync(srcPath, destPath);
-    }
+  for (const entry of fs.readdirSync(src, { withFileTypes: true })) {
+    const s = path.join(src, entry.name);
+    const d = path.join(dest, entry.name);
+    entry.isDirectory() ? copyDirSync(s, d) : fs.copyFileSync(s, d);
   }
 }
 
-// Helper to recursively delete directories
 function deleteDirSync(dirPath) {
-  if (fs.existsSync(dirPath)) {
-    fs.rmSync(dirPath, { recursive: true, force: true });
-  }
+  if (fs.existsSync(dirPath)) fs.rmSync(dirPath, { recursive: true, force: true });
 }
 
-// 2. Clean up root assets and vajrastocks folders to avoid stale files
-const rootAssets = path.join(rootDir, 'assets');
-const rootVajra = path.join(rootDir, 'vajrastocks');
-
+// ── 2. Clean old root assets/vajrastocks dirs, copy dist to root ───────────
 console.log('Cleaning old root assets and vajrastocks directories...');
-deleteDirSync(rootAssets);
-deleteDirSync(rootVajra);
+deleteDirSync(path.join(rootDir, 'assets'));
+deleteDirSync(path.join(rootDir, 'vajrastocks'));
 
-// 3. Copy everything from dist to root directory
 console.log('Copying build files from dist to root directory...');
-const entries = fs.readdirSync(distDir, { withFileTypes: true });
-for (let entry of entries) {
-  const srcPath = path.join(distDir, entry.name);
-  const destPath = path.join(rootDir, entry.name);
-
-  // Skip the 'src' directory itself to avoid overwriting source files
+for (const entry of fs.readdirSync(distDir, { withFileTypes: true })) {
   if (entry.name === 'src') continue;
-
-  if (entry.isDirectory()) {
-    copyDirSync(srcPath, destPath);
-  } else {
-    fs.copyFileSync(srcPath, destPath);
-  }
+  const s = path.join(distDir, entry.name);
+  const d = path.join(rootDir, entry.name);
+  entry.isDirectory() ? copyDirSync(s, d) : fs.copyFileSync(s, d);
 }
 
 console.log('Deployment build successfully copied to root directory!');

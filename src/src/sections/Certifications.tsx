@@ -8,7 +8,7 @@ export const Certifications = () => {
             <div className="md:flex md:justify-between md:items-center">
                 <div>
                     <Reveal>
-                        <h3 className="text-sm font-bold text-emerald-400 uppercase tracking-widest mb-3">Qualifications</h3>
+                        <h3 className="text-sm font-bold text-amber-400 uppercase tracking-widest mb-3">Qualifications</h3>
                         <h2 className="text-3xl md:text-5xl font-extrabold text-white mb-6">Certifications & Education</h2>
                     </Reveal>
                 </div>

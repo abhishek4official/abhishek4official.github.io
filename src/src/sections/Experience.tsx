@@ -12,11 +12,11 @@ export const Experience = () => {
     return (
         <Section id="experience" className="bg-surface/30 border-b border-white/[0.04] relative">
             {/* Ambient Background Glow */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-emerald-600/5 rounded-full blur-[100px] pointer-events-none" />
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-amber-600/5 rounded-full blur-[100px] pointer-events-none" />
 
             <div className="mb-16 text-center md:text-left">
                 <Reveal>
-                    <h3 className="text-sm font-bold text-emerald-400 uppercase tracking-widest mb-3">Professional History</h3>
+                    <h3 className="text-sm font-bold text-amber-400 uppercase tracking-widest mb-3">Professional History</h3>
                     <h2 className="text-3xl md:text-5xl font-extrabold text-white tracking-tight">Experience Timeline</h2>
                     <p className="text-slate-400 mt-3 text-sm max-w-xl leading-relaxed">
                         An interactive timeline of Abhishek's 11+ years of software architecture and developer history. Click a node to view detailed outcomes.
@@ -39,13 +39,13 @@ export const Experience = () => {
                                 {/* Timeline Node Dot Indicator */}
                                 <span className={`absolute -left-[30px] md:-left-[38px] top-1.5 w-4 h-4 rounded-full border-2 transition-all duration-300 ${
                                     isActive
-                                        ? 'bg-emerald-400 border-emerald-500 shadow-md shadow-emerald-500/20 scale-125'
-                                        : 'bg-[#07080b] border-white/[0.12] group-hover:border-emerald-500/50'
+                                        ? 'bg-amber-400 border-amber-500 shadow-md shadow-amber-500/20 scale-125'
+                                        : 'bg-[#07080b] border-white/[0.12] group-hover:border-amber-500/50'
                                 }`} />
 
                                 <div className="transition-all duration-300">
                                     <span className={`text-[10px] font-bold tracking-wider uppercase font-mono block ${
-                                        isActive ? 'text-emerald-400' : 'text-slate-500 group-hover:text-slate-400'
+                                        isActive ? 'text-amber-400' : 'text-slate-500 group-hover:text-slate-400'
                                     }`}>
                                         {role.period}
                                     </span>
@@ -71,7 +71,7 @@ export const Experience = () => {
                                 {/* Header Info */}
                                 <div className="flex items-start justify-between border-b border-white/[0.06] pb-5 mb-6">
                                     <div>
-                                        <span className="text-[10px] font-black uppercase tracking-widest text-emerald-400 bg-emerald-400/10 border border-emerald-400/15 rounded-full px-3 py-1 mb-2.5 inline-block">
+                                        <span className="text-[10px] font-black uppercase tracking-widest text-amber-400 bg-amber-400/10 border border-amber-400/15 rounded-full px-3 py-1 mb-2.5 inline-block">
                                             {activeRole.type}
                                         </span>
                                         <h3 className="text-2xl font-extrabold text-white tracking-tight">
@@ -87,7 +87,7 @@ export const Experience = () => {
                                 <ul className="space-y-4">
                                     {activeRole.highlights.map((highlight, hIndex) => (
                                         <li key={hIndex} className="flex items-start gap-3.5">
-                                            <span className="shrink-0 w-5 h-5 rounded-full bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400 font-extrabold text-xs mt-0.5 select-none">
+                                            <span className="shrink-0 w-5 h-5 rounded-full bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-400 font-extrabold text-xs mt-0.5 select-none">
                                                 ✓
                                             </span>
                                             <span className="text-sm text-slate-300 leading-relaxed font-normal">

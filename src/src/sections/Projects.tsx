@@ -39,7 +39,7 @@ export const Projects = () => {
         <Section id="projects" className="bg-surface/10 border-b border-white/[0.04]">
             <div className="mb-14 text-center md:text-left">
                 <Reveal>
-                    <h3 className="text-sm font-bold text-emerald-400 uppercase tracking-widest mb-3">Selected Projects</h3>
+                    <h3 className="text-sm font-bold text-amber-400 uppercase tracking-widest mb-3">Selected Projects</h3>
                     <h2 className="text-3xl md:text-5xl font-extrabold text-white tracking-tight">Engineering Case Studies</h2>
                     <p className="text-slate-400 mt-3 text-sm max-w-xl leading-relaxed">
                         A list of core enterprise platforms built by Abhishek. Click a tag below to dynamically filter matching stacks.
@@ -92,7 +92,7 @@ export const Projects = () => {
                                     : 'opacity-100 scale-100'
                             }`}>
                                 <DynamicCard className={`border border-white/[0.06] bg-surface p-8 shadow-2xl relative ${
-                                    isVajra ? 'hover:border-purple-500/40' : 'hover:border-emerald-500/30'
+                                    isVajra ? 'hover:border-purple-500/40' : 'hover:border-amber-500/30'
                                 }`}>
                                     <div className="flex flex-col md:flex-row gap-8 justify-between items-start">
                                         
@@ -108,7 +108,7 @@ export const Projects = () => {
                                                     {isVajra ? 'Quant Platform & Flagship' : 'Enterprise Engineering'}
                                                 </span>
                                                 {project.github && (
-                                                    <span className="text-[9px] font-bold uppercase tracking-widest text-emerald-400 bg-emerald-400/10 border border-emerald-400/20 rounded-full px-2.5 py-1">
+                                                    <span className="text-[9px] font-bold uppercase tracking-widest text-amber-400 bg-amber-400/10 border border-amber-400/20 rounded-full px-2.5 py-1">
                                                         Open Source
                                                     </span>
                                                 )}
@@ -127,7 +127,7 @@ export const Projects = () => {
                                             {/* Outcome block */}
                                             <div className="pt-2">
                                                 <span className="text-[10px] font-bold text-slate-500 uppercase tracking-widest font-mono block mb-1.5">Outcome</span>
-                                                <p className="text-slate-300 font-medium text-xs border-l-2 border-emerald-500/50 pl-3.5 leading-relaxed font-sans">
+                                                <p className="text-slate-300 font-medium text-xs border-l-2 border-amber-500/50 pl-3.5 leading-relaxed font-sans">
                                                     {project.outcome}
                                                 </p>
                                             </div>

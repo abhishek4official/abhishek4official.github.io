@@ -12,7 +12,7 @@ export const Hero = () => {
                 <div className="w-96 h-96 bg-gradient-to-br from-purple-900/20 to-indigo-950/5 rounded-full blur-3xl"></div>
             </div>
             <div className="absolute bottom-0 left-0 -z-10 opacity-40 -translate-x-1/4 translate-y-1/4 pointer-events-none">
-                <div className="w-[500px] h-[500px] bg-gradient-to-tr from-emerald-900/10 to-transparent rounded-full blur-3xl"></div>
+                <div className="w-[500px] h-[500px] bg-gradient-to-tr from-amber-900/10 to-transparent rounded-full blur-3xl"></div>
             </div>
 
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
@@ -20,9 +20,9 @@ export const Hero = () => {
                 {/* ── LEFT: Bio text ── */}
                 <div className="lg:col-span-7 max-w-xl relative">
                     <Reveal delay={100}>
-                        <div className="inline-flex items-center gap-2 border border-emerald-500/25 bg-emerald-500/5 rounded-full px-3.5 py-1 mb-6">
-                            <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                            <span className="text-[10px] font-bold text-emerald-400 tracking-widest uppercase">Open for new opportunities</span>
+                        <div className="inline-flex items-center gap-2 border border-amber-500/25 bg-amber-500/5 rounded-full px-3.5 py-1 mb-6">
+                            <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse" />
+                            <span className="text-[10px] font-bold text-amber-400 tracking-widest uppercase">Open for new opportunities</span>
                         </div>
                     </Reveal>
 
@@ -34,7 +34,7 @@ export const Hero = () => {
                     </Reveal>
                     <Reveal delay={200}>
                         <h2 className="text-xl md:text-2xl font-bold text-slate-300 mb-8 flex items-center gap-3">
-                            <span className="w-8 h-1 bg-emerald-500 rounded-full shrink-0"></span>
+                            <span className="w-8 h-1 bg-amber-500 rounded-full shrink-0"></span>
                             {resumeData.title}
                         </h2>
                     </Reveal>
@@ -46,7 +46,7 @@ export const Hero = () => {
                     <Reveal delay={400}>
                         <div className="flex flex-wrap gap-4">
                             <a href="/ResumeAbhishek.pdf" download>
-                                <Button variant="primary" size="lg" className="shadow-lg shadow-emerald-500/20 hover:shadow-emerald-500/30 hover:scale-[1.02] active:scale-[0.98] transition-all">
+                                <Button variant="primary" size="lg" className="shadow-lg shadow-amber-500/20 hover:shadow-amber-500/30 hover:scale-[1.02] active:scale-[0.98] transition-all">
                                     Download Resume
                                 </Button>
                             </a>

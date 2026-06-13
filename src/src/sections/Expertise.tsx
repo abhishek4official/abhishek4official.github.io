@@ -56,7 +56,7 @@ export const Expertise = () => {
         <Section id="expertise" className="bg-slate-950/10 border-b border-white/[0.04]">
             <div className="mb-16 text-center md:text-left">
                 <Reveal>
-                    <h3 className="text-sm font-bold text-emerald-400 uppercase tracking-widest mb-3">Core Expertise</h3>
+                    <h3 className="text-sm font-bold text-amber-400 uppercase tracking-widest mb-3">Core Expertise</h3>
                     <h2 className="text-3xl md:text-5xl font-extrabold text-white tracking-tight">Technical Domain Bento</h2>
                 </Reveal>
             </div>
