@@ -98,11 +98,13 @@ export const resumeData = {
             techStack: ["React 19", "TypeScript", "FastAPI", "Python", "SQLite", "Ollama", "TradingView Charts", "pandas-ta", "PyInstaller", "GitHub Actions", "Tailwind CSS", "Zustand"],
             outcome: "A self-hosted alternative to TradingView and Screener.in — ships as a one-click installer for Windows, Linux, and macOS. The AI analysis pipeline runs fully offline using local LLMs.",
             github: "https://github.com/abhishek4official/VajraStocks",
-            releases: "https://github.com/abhishek4official/VajraStocks/releases/tag/v1.0.0",
+            releases: "https://github.com/abhishek4official/VajraStocks/releases/tag/v1.3.0",
             features: [
                 "4 chart types: Candlestick, Heikin-Ashi, Renko (ATR-calibrated), Three Line Break",
                 "11-parameter screener with sub-5ms response via denormalized snapshot cache",
                 "7-agent AI DAG: orchestrator, SQL specialist, market regime, trade planner, backtester, quant researcher, report writer",
+                "Machine Learning training (VajraML) utilizing LightGBM with 6-fold walk-forward validation",
+                "Portfolio rotation engine with weakness detection, RS bottom-quartile checks, and volatility-scaled risk multiplier",
                 "Real-time SSE streaming of agent execution and investment reports",
                 "Incremental yFinance sync with per-ticker fallback loops and full audit trail",
                 "One-click installers: Windows .exe, Linux .deb/.rpm/.AppImage, macOS .dmg"
