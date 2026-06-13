@@ -4,8 +4,8 @@ export const resumeData = {
     location: "Greater Noida, UP, India",
     email: "abhishek4official@gmail.com",
     phone: "+91 8860817128",
-    linkedin: "https://linkedin.com/in/Abhishek", // Assuming standard URL structure based on text
-    summary: "Senior Full Stack & AI Solutions Architect with over 11 years of experience designing scalable cloud-native systems. Specialized in Azure Microservices, Python/FastAPI, and Enterprise AI solutions using GPT-4, LangChain, and Microsoft Agent Framework. Built production-grade quantitative stock analysis platforms powered by multi-agent AI pipelines, real-time data streaming, and advanced charting engines for Indian equity markets.",
+    linkedin: "https://www.linkedin.com/in/abhishek4official/",
+    summary: "Senior Full Stack & AI Solutions Architect with over 11 years of experience designing scalable cloud-native systems. Specialized in Azure Microservices, Python/FastAPI, and Enterprise AI — with deep expertise in multi-agent LLM orchestration using GPT-4, LangChain, and Microsoft Agent Framework. Built production-grade quantitative stock analysis platforms powered by autonomous AI pipelines, real-time data streaming, and advanced charting engines for Indian equity markets.",
 
     expertise: [
         {
@@ -94,7 +94,7 @@ export const resumeData = {
     projects: [
         {
             title: "VajraStocks — NSE Quantitative Analysis Platform",
-            description: "A local-first, open-source stock research platform for Indian equity markets. Tracks 2,365+ NSE stocks with 4 chart types, an 11-parameter technical screener that responds in under 5ms, and a 7-agent AI pipeline that generates institutional-grade investment reports entirely on your machine — no subscriptions, no cloud dependency.",
+            description: "A local-first, open-source stock research platform for Indian equity markets. Tracks 2,365+ NSE stocks with 4 chart types, 12 built-in screener presets that respond in under 5ms, 6 quant strategy models, and a 7-agent AI pipeline that generates institutional-grade investment reports entirely on your machine — no subscriptions, no cloud dependency.",
             techStack: ["React 19", "TypeScript", "FastAPI", "Python", "SQLite", "Ollama", "TradingView Charts", "pandas-ta", "PyInstaller", "GitHub Actions", "Tailwind CSS", "Zustand"],
             outcome: "A self-hosted alternative to TradingView and Screener.in — ships as a one-click installer for Windows, Linux, and macOS. The AI analysis pipeline runs fully offline using local LLMs.",
             github: "https://github.com/abhishek4official/VajraStocks",

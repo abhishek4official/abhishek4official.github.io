@@ -29,7 +29,7 @@ const ExternalLink = () => (
 const STATS = [
     { value: '2,365+', label: 'NSE Stocks tracked' },
     { value: '7',      label: 'Autonomous AI Agents' },
-    { value: '4',      label: 'Chart Types' },
+    { value: '6',      label: 'Quant Strategies' },
     { value: '< 5ms',  label: 'Screener response' },
 ];
 
@@ -90,34 +90,66 @@ const CAPABILITIES = [
     {
         id: 'explorer',
         title: 'Explorer Dashboard',
-        tagline: 'Deep Quantitative Chart Analysis',
+        tagline: 'Multi-Chart Deep Dive with Trade Plan',
         badge: 'Quant Insights',
         image: '/vajrastocks_explorer.png',
-        desc: 'Analyze Indian equities with Heikin-Ashi, Renko, Three Line Break, and standard Candlestick models. View technical indicators (RSI, MACD, and SMA) overlaid with precise mathematical alignments.',
+        desc: 'Analyze any NSE stock across four chart types with full indicator overlays. The EOD Indicator Logs table shows per-day RSI, CMF, StochRSI, MACD, and SMA history. The Trade Plan panel computes ATR-calibrated entry, stop loss, T1/T2 targets, R:R ratio, and suggested position size — all from your local database.',
         bullets: [
-            'Interactive synchronized cursor across sub-panes',
-            'Full support for major technical indicators: SMA 20/50/200, MACD, RSI',
-            'Time-independent price analysis with ATR-calibrated Renko bricks',
-            'Noise-filtered trend direction indicators using Heikin-Ashi calculations'
+            'Four chart types: Candlestick, Heikin-Ashi, Renko (ATR-brick), Three Line Break',
+            'Overlays: SMA 20/50/200, EMA 9/21, Bollinger Bands, S/R confluence, H-Line',
+            'EOD Indicator Logs: per-day RSI, CMF, StochRSI K/D, MACD, Signal, Histogram',
+            'Trade Plan: entry, stop loss, T1/T2, R:R ratio, suggested qty, regime bias'
         ],
         gradient: 'from-violet-600/20 to-purple-600/5',
         border: 'border-violet-500/30 hover:border-violet-500/60'
     },
     {
         id: 'screener',
-        title: 'Technical Screener',
-        tagline: 'Multi-Filter Scan in Milliseconds',
+        title: 'Stock Screener',
+        tagline: 'Sub-5ms Multi-Filter Scan Across 2,365+ Stocks',
         badge: 'Database Performance',
         image: '/vajrastocks_screener.png',
-        desc: 'Filter the entire NSE universe using a denormalized snapshot cache. Perform scans based on volume breakouts, RSI levels, MACD crossovers, and multi-chart trend indicators instantly.',
+        desc: 'Choose from 12 built-in preset scans or compose custom filters. Results include Price, CHG%, 1W/2W/3W/4W returns, BIAS, Stop, T1/T2/T3 targets, R:R, and Volume Breakout — all computed from your local EOD snapshot in under 5ms.',
         bullets: [
-            'Sub-5ms query performance with Zero-Join tables',
-            '11 highly customizable technical indicator filters',
-            'Interactive data grid with sortable columns and CSV export',
-            'Seamless integration — click any row to load the chart explorer'
+            '12 one-click presets: Breakout, Momentum, Pullback, Oversold Bounce, NR7, Gap Up, RS Leaders, CMF Accumulation, and more',
+            'Results grid: Price, CHG%, AVG Vol, BIAS, 1W–4W returns, Stop, T1/T2/T3, R:R, RS, Vol Breakout',
+            'Sub-5ms query performance against a zero-join denormalised EOD snapshot',
+            'Export to CSV; click any row to open that stock directly in the Explorer'
         ],
         gradient: 'from-blue-600/20 to-indigo-600/5',
         border: 'border-blue-500/30 hover:border-blue-500/60'
+    },
+    {
+        id: 'strategy',
+        title: 'Strategy Screener',
+        tagline: 'Six-Model Consensus Ranking in List & Matrix View',
+        badge: 'Quant Strategies',
+        image: '/vajrastocks_strategy.png',
+        desc: 'Run institutional-grade quantitative strategies across the full NSE universe. Scan 2,085+ stocks with the RS Moving Average Cross model and switch to Matrix View to see each stock scored across six strategies simultaneously — spotting true multi-model consensus at a glance.',
+        bullets: [
+            'Six strategies: RS MA Cross, Minervini, 52-Week, Weinstein, Cross-Sectional, Dual',
+            'Matrix View: BUY / WATCH / SELL signal for each stock × each strategy in one grid',
+            'List View: score, entry, stop, risk %, R:R, ATR%, key metrics per candidate',
+            'BUY/WATCH/SELL/Near-miss filters; adjustable minimum score threshold'
+        ],
+        gradient: 'from-cyan-600/20 to-sky-600/5',
+        border: 'border-cyan-500/30 hover:border-cyan-500/60'
+    },
+    {
+        id: 'portfolio',
+        title: 'Portfolio & Rotation',
+        tagline: 'Live Holdings Risk, Regime Heat & Rotation Candidates',
+        badge: 'Risk & Rotation',
+        image: '/vajrastocks_portfolio.png',
+        desc: 'Import your Zerodha Holdings CSV to compute live portfolio-level risk metrics. The Risk & Regime panel shows Portfolio Heat vs cap, Open Risk ₹, market Breadth, and the current market regime (Bull/Bear). Rotation Candidates automatically surface the highest-momentum stocks to replace weak positions.',
+        bullets: [
+            'Import Zerodha Holdings CSV — instantly maps EOD indicators to all open positions',
+            'Portfolio Heat gauge with regime-adjusted risk caps (Bull vs Bear market limits)',
+            'Per-holding: P&L, 1W–4W returns, BIAS, MTF status, ATR%, Stop, T1/T2/T3, RS',
+            'Rotation Candidates: VERY_BULLISH / BULLISH weekly-confirmed names ranked by momentum'
+        ],
+        gradient: 'from-rose-600/20 to-red-600/5',
+        border: 'border-rose-500/30 hover:border-rose-500/60'
     },
     {
         id: 'ai_console',
@@ -125,12 +157,12 @@ const CAPABILITIES = [
         tagline: '7-Agent Autonomous Quantitative Analysis',
         badge: 'Multi-Agent AI',
         image: '/vajrastocks_ai_console.png',
-        desc: 'Ask complex quantitative questions in plain English. Watch a Directed Acyclic Graph (DAG) of seven specialized AI agents retrieve data, backtest strategies, assess risk, and generate institutional reports.',
+        desc: 'Ask complex quantitative questions in plain English. A Directed Acyclic Graph (DAG) of seven specialised AI agents — powered by local Ollama LLMs — retrieves data from your SQLite database, backtests strategies, computes risk metrics, and writes publication-ready Markdown reports, all on your machine.',
         bullets: [
-            'Orchestrated with Microsoft Agent Framework and local LLMs',
-            'Watch task execution live via Server-Sent Events (SSE) telemetry',
-            'Generates complete, publication-ready Markdown reports with INR notation',
-            'Performs automated win-rate, CAGR, and maximum drawdown backtests'
+            '7 agents: SQL Ingestion, Market Regime, Stock Technical Analysis, Opportunity Scanner, Trade Planner, Backtester, Report Compiler',
+            'Natural language → read-only SQL against your local historical database',
+            'Real-time agent stream logs via Server-Sent Events (SSE) telemetry',
+            'Reports include win rate, CAGR, Sharpe ratio, and max drawdown for backtests'
         ],
         gradient: 'from-fuchsia-600/20 to-pink-600/5',
         border: 'border-fuchsia-500/30 hover:border-fuchsia-500/60'
@@ -138,50 +170,34 @@ const CAPABILITIES = [
     {
         id: 'sync_center',
         title: 'Data Sync Engine',
-        tagline: 'Resilient Audited Market Data Pipeline',
+        tagline: 'Resilient Audited Post-Market Data Pipeline',
         badge: 'Data Pipelines',
         image: '/vajrastocks_sync_center.png',
-        desc: 'A robust, self-recovering incremental crawler built to update historical market prices with yFinance. Employs advanced rate-limiting, transaction isolation, and detailed run-logs.',
+        desc: 'A self-recovering incremental crawler that updates your local SQLite database every trading day after market close (3:30 PM IST). Warm delta syncs complete in under 2 minutes. Cold full-history backfills handle all 2,300+ NSE symbols with batch-level API rate-limit recovery.',
         bullets: [
-            'Warm delta synchronization checks recent records to save bandwidth',
-            'Cold-start crawler handles bulk historical backfills reliably',
-            'Self-recovering batching loops protect against API rate-limits',
-            'Full database transaction rollbacks protect schema integrity'
+            'Warm delta sync: fetches only the latest candle for each already-synced symbol',
+            'Cold full backfill for new symbols with self-recovering batch loops',
+            'Database transaction isolation — schema integrity preserved on any failure',
+            'Audit logs: rows inserted, errors, and skipped symbols per sync run'
         ],
         gradient: 'from-emerald-600/20 to-teal-600/5',
         border: 'border-emerald-500/30 hover:border-emerald-500/60'
     },
     {
         id: 'ml_training',
-        title: 'Machine Learning Training',
-        tagline: 'Walk-Forward Validation & Feature Selection',
+        title: 'ML Model Training',
+        tagline: 'Walk-Forward Validation on 4.89 Lakh Rows',
         badge: 'VajraML Engine',
-        image: '/vajrastocks_ai_console.png',
-        desc: 'Train and validate predictive models locally. Features a 6-fold walk-forward validation framework utilizing LightGBM as the primary non-linear model and Ridge regression as the linear benchmark.',
+        image: '/vajrastocks_ml_training.png',
+        desc: 'Train and validate predictive ranking models locally on 4,89,296 rows spanning 3+ years of NSE data. A 6-fold walk-forward cross-validation framework uses LightGBM as the primary non-linear model and Ridge regression as the linear benchmark — no lookahead bias, GPU-accelerated.',
         bullets: [
-            'Automated 6-fold walk-forward validation avoids lookahead bias',
-            'Feature selection ranking powered by RSI, ATR, SMA, CMF, StochRSI, and OBV',
-            'Real-time console logging and GPU acceleration (OpenCL/CPU auto-fallback)',
-            'Computes Information Coefficient (IC) and validation metrics on held-out folds'
+            'Automated 6-fold walk-forward validation — 2023-06 → 2026-06 date range',
+            'LightGBM primary model + Ridge regression benchmark, evaluated per fold',
+            'GPU-accelerated training with CPU auto-fallback; typical run time ~11 minutes',
+            'Reports IC (Information Coefficient), Hit %, and Long/Short return per fold'
         ],
         gradient: 'from-amber-600/20 to-yellow-600/5',
         border: 'border-amber-500/30 hover:border-amber-500/60'
-    },
-    {
-        id: 'portfolio_rotation',
-        title: 'Portfolio Rotation Engine',
-        tagline: 'Weakness Detection & Momentum Re-Ranking',
-        badge: 'Risk & Rotation',
-        image: '/vajrastocks_explorer.png',
-        desc: 'Import Zerodha holdings CSV to compute portfolio-level health metrics. Automatically flags weak positions in the bottom quartile of Relative Strength (RS) and recommends high-momentum rotation candidates.',
-        bullets: [
-            'Dynamic Portfolio Heat limits automatically adjusted for bull/bear regimes',
-            'Volatility-scaled position sizing and stops calculated via ATR percentages',
-            'Identifies ROTATE candidates with confluence-based multi-stage targets (T1, T2, T3)',
-            'Computes net P&L, Alpha vs Nifty, and weekly-confirmed multi-timeframe trends'
-        ],
-        gradient: 'from-rose-600/20 to-red-600/5',
-        border: 'border-rose-500/30 hover:border-rose-500/60'
     }
 ];
 
@@ -233,13 +249,19 @@ const AGENT_LIST = [
 [report_agent] Execution complete. Final payload pushed to UI client.` }
 ];
 
-const SCREENER_STOCKS = [
-    { ticker: 'RELIANCE', name: 'Reliance Industries', price: '₹2,983.45', change: '+1.82%', bullish: true, rsi: 58.4, macd: 'Bullish', vol: '2.1x', tag: 'High Volume' },
-    { ticker: 'TCS', name: 'Tata Consultancy Services', price: '₹3,845.10', change: '-0.42%', bullish: false, rsi: 41.2, macd: 'Bearish', vol: '0.8x', tag: 'Standard' },
-    { ticker: 'INFY', name: 'Infosys Limited', price: '₹1,420.15', change: '+2.45%', bullish: true, rsi: 72.8, macd: 'Bullish', vol: '3.4x', tag: 'Oversold / High Vol' },
-    { ticker: 'HDFCBANK', name: 'HDFC Bank Limited', price: '₹1,562.30', change: '+0.15%', bullish: true, rsi: 52.1, macd: 'Bullish', vol: '1.2x', tag: 'Standard' },
-    { ticker: 'ICICIBANK', name: 'ICICI Bank Limited', price: '₹1,085.60', change: '-1.20%', bullish: false, rsi: 28.5, macd: 'Bearish', vol: '2.3x', tag: 'Oversold' },
-    { ticker: 'TATAMOTORS', name: 'Tata Motors Limited', price: '₹945.75', change: '+3.12%', bullish: true, rsi: 65.3, macd: 'Bullish', vol: '2.8x', tag: 'High Volume' }
+const SCREENER_PRESETS = [
+    { name: 'Breakout Scanner',   desc: 'Price above SMA20, 50, 200 with high volume surge',              tag: 'Trend',      color: 'text-emerald-400 bg-emerald-500/10 border-emerald-500/20' },
+    { name: 'Momentum Leaders',   desc: 'RSI > 60, MACD histogram rising, RS above Nifty 500',            tag: 'Momentum',   color: 'text-violet-400 bg-violet-500/10 border-violet-500/20' },
+    { name: 'Pullback to SMA20',  desc: 'Price within 1% of SMA20, above SMA50 and SMA200',              tag: 'Entry',      color: 'text-blue-400 bg-blue-500/10 border-blue-500/20' },
+    { name: 'Oversold Bounce',    desc: 'RSI < 35 with StochRSI K/D cross from oversold territory',       tag: 'Reversal',   color: 'text-amber-400 bg-amber-500/10 border-amber-500/20' },
+    { name: 'Volume Surge',       desc: 'Volume ≥ 2× 20-day average with price ≥ 0%',                    tag: 'Volume',     color: 'text-cyan-400 bg-cyan-500/10 border-cyan-500/20' },
+    { name: 'Swing Reversal',     desc: 'Bullish MACD crossover within 3 bars, RSI 40–60 range',          tag: 'Reversal',   color: 'text-pink-400 bg-pink-500/10 border-pink-500/20' },
+    { name: 'NR7 Squeeze',        desc: 'Narrowest 7-day range, ATR% contraction — breakout pending',     tag: 'Volatility', color: 'text-orange-400 bg-orange-500/10 border-orange-500/20' },
+    { name: 'Inside Bar',         desc: "Today's high/low inside prior bar — coiled for breakout",        tag: 'Pattern',    color: 'text-teal-400 bg-teal-500/10 border-teal-500/20' },
+    { name: 'Gap Up',             desc: 'Opened ≥ 1.5% above prior close on above-average volume',       tag: 'Momentum',   color: 'text-violet-400 bg-violet-500/10 border-violet-500/20' },
+    { name: 'RS Leaders',         desc: 'Relative Strength percentile ≥ 80 vs Nifty 500 universe',       tag: 'Strength',   color: 'text-emerald-400 bg-emerald-500/10 border-emerald-500/20' },
+    { name: 'CMF Accumulation',   desc: 'Chaikin Money Flow > 0.15 — institutions buying on up-volume',  tag: 'Flow',       color: 'text-indigo-400 bg-indigo-500/10 border-indigo-500/20' },
+    { name: 'StochRSI Xover',     desc: 'StochRSI K crosses above D from below 20 — early-cycle signal', tag: 'Signal',     color: 'text-rose-400 bg-rose-500/10 border-rose-500/20' },
 ];
 
 /* ─────────────────────────────────────────────────────────────────────────────
@@ -249,7 +271,6 @@ export const VajraStocksPage = () => {
     // UI state interactions
     const [activeCapability, setActiveCapability] = useState('explorer');
     const [selectedAgent, setSelectedAgent] = useState('orchestrator');
-    const [screenerFilter, setScreenerFilter] = useState('all');
     const [selectedChartType, setSelectedChartType] = useState('candlestick');
 
     useEffect(() => {
@@ -257,14 +278,6 @@ export const VajraStocksPage = () => {
         document.title = 'VajraStocks — Quantitative Analysis Platform';
         return () => { document.title = 'Abhishek Kumar'; };
     }, []);
-
-    // Filter logic for Screener Demo
-    const filteredStocks = SCREENER_STOCKS.filter(stock => {
-        if (screenerFilter === 'bullish') return stock.bullish;
-        if (screenerFilter === 'oversold') return stock.rsi < 35 || stock.rsi > 70;
-        if (screenerFilter === 'volume') return parseFloat(stock.vol) >= 2.0;
-        return true;
-    });
 
     const activeAgentData = AGENT_LIST.find(a => a.id === selectedAgent) || AGENT_LIST[0];
 
@@ -352,6 +365,11 @@ export const VajraStocksPage = () => {
                         </a>
                     </div>
 
+                    {/* EOD data disclaimer */}
+                    <p className="text-[11px] text-slate-600 mb-16 font-medium">
+                        Data is End-of-Day (EOD) via yfinance — updated post 3:30 PM IST &nbsp;·&nbsp; Designed for swing &amp; position trading, not intraday execution
+                    </p>
+
                     {/* Stats Grid */}
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-px bg-slate-800/30 rounded-2xl overflow-hidden border border-slate-800/50 mb-20">
                         {STATS.map((s, i) => (
@@ -372,7 +390,7 @@ export const VajraStocksPage = () => {
                                 <span className="w-3 h-3 rounded-full bg-green-500/80" />
                             </div>
                             <div className="text-[11px] font-semibold text-slate-600 bg-slate-950/50 rounded px-6 py-0.5 border border-slate-900/60 font-mono">
-                                localhost:5175/explorer/RELIANCE
+                                localhost:8000/explorer/RELIANCE
                             </div>
                             <div className="w-12" />
                         </div>
@@ -381,7 +399,7 @@ export const VajraStocksPage = () => {
                         
                         <img 
                             src="/vajrastocks_hero.png" 
-                            alt="VajraStocks Explorer Interface Mockup"
+                            alt="VajraStocks Explorer Dashboard — candlestick chart with EOD indicators and Trade Plan"
                             className="w-full rounded-lg object-cover shadow-inner transition-transform duration-700 group-hover:scale-[1.008]" 
                         />
                     </div>
@@ -456,7 +474,7 @@ export const VajraStocksPage = () => {
                                                 <span className="w-2.5 h-2.5 rounded-full bg-green-500/60" />
                                             </div>
                                             <div className="text-[9px] font-semibold text-slate-600 bg-slate-950/40 rounded px-4 py-0.5 border border-slate-900/40 font-mono">
-                                                localhost:5175/{cap.id}
+                                                localhost:8000/{cap.id}
                                             </div>
                                             <div className="w-8" />
                                         </div>
@@ -692,117 +710,86 @@ export const VajraStocksPage = () => {
                 </div>
             </section>
 
-            {/* ── INTERACTIVE SCREENER PREVIEW ── */}
+            {/* ── SCREENER PRESET SHOWCASE ── */}
             <section className="py-24 px-6 border-t border-slate-900/80 bg-slate-950/20">
                 <div className="max-w-6xl mx-auto">
                     <div className="text-center mb-16">
-                        <p className="text-xs font-bold uppercase tracking-widest text-emerald-400 mb-3">Live Cache Simulation</p>
-                        <h2 className="text-3xl md:text-5xl font-extrabold text-white tracking-tight">Technical Screener Grid</h2>
+                        <p className="text-xs font-bold uppercase tracking-widest text-emerald-400 mb-3">12 Built-in Preset Scans</p>
+                        <h2 className="text-3xl md:text-5xl font-extrabold text-white tracking-tight">Stock Screener Presets</h2>
                         <p className="text-slate-400 mt-4 max-w-xl mx-auto text-sm sm:text-base font-normal">
-                            Filter the stock database snapshot in under 5 milliseconds. Try clicking different technical query buttons below.
+                            One click to run any preset across 2,365+ NSE stocks in under 5ms — or compose your own custom filter. Results include Price, CHG%, 1W–4W returns, BIAS, Stop, T1/T2/T3, R:R, and Volume Breakout.
                         </p>
                     </div>
 
                     <div className="bg-[#0d0f14] rounded-2xl border border-slate-800 p-6">
-                        {/* Filters panel */}
-                        <div className="flex flex-wrap items-center gap-2 mb-6 border-b border-slate-800/80 pb-4">
-                            <span className="text-[10px] font-bold text-slate-500 uppercase tracking-widest mr-2">Query Filter</span>
-                            <button
-                                onClick={() => setScreenerFilter('all')}
-                                className={`px-4 py-1.5 rounded-lg text-xs font-bold transition-all ${
-                                    screenerFilter === 'all'
-                                        ? 'bg-emerald-500/20 border border-emerald-500/40 text-emerald-400'
-                                        : 'bg-slate-950/60 border border-slate-900 text-slate-400 hover:text-slate-200'
-                                }`}
-                            >
-                                All Stocks
-                            </button>
-                            <button
-                                onClick={() => setScreenerFilter('bullish')}
-                                className={`px-4 py-1.5 rounded-lg text-xs font-bold transition-all ${
-                                    screenerFilter === 'bullish'
-                                        ? 'bg-emerald-500/20 border border-emerald-500/40 text-emerald-400'
-                                        : 'bg-slate-950/60 border border-slate-900 text-slate-400 hover:text-slate-200'
-                                }`}
-                            >
-                                MACD Crossover (Bullish)
-                            </button>
-                            <button
-                                onClick={() => setScreenerFilter('oversold')}
-                                className={`px-4 py-1.5 rounded-lg text-xs font-bold transition-all ${
-                                    screenerFilter === 'oversold'
-                                        ? 'bg-emerald-500/20 border border-emerald-500/40 text-emerald-400'
-                                        : 'bg-slate-950/60 border border-slate-900 text-slate-400 hover:text-slate-200'
-                                }`}
-                            >
-                                Extremes (RSI &lt; 35 or &gt; 70)
-                            </button>
-                            <button
-                                onClick={() => setScreenerFilter('volume')}
-                                className={`px-4 py-1.5 rounded-lg text-xs font-bold transition-all ${
-                                    screenerFilter === 'volume'
-                                        ? 'bg-emerald-500/20 border border-emerald-500/40 text-emerald-400'
-                                        : 'bg-slate-950/60 border border-slate-900 text-slate-400 hover:text-slate-200'
-                                }`}
-                            >
-                                High Vol Breakout (&gt;= 2x)
-                            </button>
+                        <div className="flex items-center gap-3 mb-6 border-b border-slate-800/80 pb-4">
+                            <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                            <span className="text-[10px] font-bold text-slate-500 uppercase tracking-widest">EOD Snapshot · All 2,365+ NSE Symbols · &lt; 5ms per query</span>
                         </div>
 
-                        {/* Database Grid Table */}
-                        <div className="overflow-x-auto">
-                            <table className="w-full text-left border-collapse">
-                                <thead>
-                                    <tr className="border-b border-slate-800/80 text-[10px] text-slate-500 font-bold uppercase tracking-widest">
-                                        <th className="pb-3 pl-2">Ticker</th>
-                                        <th className="pb-3">Name</th>
-                                        <th className="pb-3 text-right">Price</th>
-                                        <th className="pb-3 text-right">Change</th>
-                                        <th className="pb-3 text-right">RSI (14)</th>
-                                        <th className="pb-3 text-center">MACD Trend</th>
-                                        <th className="pb-3 text-right">Vol Mult</th>
-                                        <th className="pb-3 text-right pr-2">Flags</th>
-                                    </tr>
-                                </thead>
-                                <tbody className="divide-y divide-slate-800/40 text-xs font-mono font-medium">
-                                    {filteredStocks.map((stock) => (
-                                        <tr key={stock.ticker} className="hover:bg-slate-900/30 transition-all group">
-                                            <td className="py-3.5 pl-2 font-bold text-white group-hover:text-emerald-400 transition-colors">
-                                                {stock.ticker}
-                                            </td>
-                                            <td className="py-3.5 text-slate-400 group-hover:text-slate-300 transition-colors">
-                                                {stock.name}
-                                            </td>
-                                            <td className="py-3.5 text-right font-bold text-white">
-                                                {stock.price}
-                                            </td>
-                                            <td className={`py-3.5 text-right font-extrabold ${stock.change.startsWith('+') ? 'text-emerald-400' : 'text-rose-400'}`}>
-                                                {stock.change}
-                                            </td>
-                                            <td className={`py-3.5 text-right font-bold ${stock.rsi < 35 ? 'text-blue-400' : stock.rsi > 70 ? 'text-rose-400' : 'text-slate-300'}`}>
-                                                {stock.rsi}
-                                            </td>
-                                            <td className="py-3.5 text-center">
-                                                <span className={`px-2 py-0.5 rounded text-[10px] font-bold tracking-wide uppercase ${
-                                                    stock.macd === 'Bullish'
-                                                        ? 'bg-emerald-500/10 border border-emerald-500/20 text-emerald-400'
-                                                        : 'bg-rose-500/10 border border-rose-500/20 text-rose-400'
-                                                }`}>
-                                                    {stock.macd}
-                                                </span>
-                                            </td>
-                                            <td className="py-3.5 text-right text-slate-300">
-                                                {stock.vol}
-                                            </td>
-                                            <td className="py-3.5 text-right pr-2">
-                                                <span className="px-2 py-0.5 rounded-full bg-slate-950 text-slate-500 border border-slate-900 text-[9px] uppercase font-bold">
-                                                    {stock.tag}
-                                                </span>
-                                            </td>
-                                        </tr>
-                                    ))}
-                                </tbody>
-                            </table>
+                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+                            {SCREENER_PRESETS.map((preset) => (
+                                <div key={preset.name} className="flex items-start gap-3 p-3.5 rounded-xl bg-slate-950/50 border border-slate-800/50 hover:border-slate-700/60 transition-all group">
+                                    <div className="flex-1 min-w-0">
+                                        <div className="flex items-center gap-2 mb-1">
+                                            <span className="text-xs font-bold text-white group-hover:text-emerald-300 transition-colors truncate">{preset.name}</span>
+                                            <span className={`shrink-0 px-1.5 py-0.5 rounded text-[9px] font-bold uppercase tracking-wide border ${preset.color}`}>{preset.tag}</span>
+                                        </div>
+                                        <p className="text-[11px] text-slate-500 leading-snug">{preset.desc}</p>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+
+                        <div className="mt-6 pt-4 border-t border-slate-800/60 flex flex-wrap items-center gap-6 text-[10px] text-slate-600 font-bold uppercase tracking-wider">
+                            <span>Result columns: Price · CHG% · 1W/2W/3W/4W · BIAS · Stop · T1/T2/T3 · R:R · RS · Vol Breakout</span>
+                            <span className="ml-auto shrink-0">Export CSV · Click row → Explorer</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* ── DESIGNED FOR / NOT FOR ── */}
+            <section className="py-20 px-6 border-t border-slate-900/80 bg-slate-950/30">
+                <div className="max-w-5xl mx-auto">
+                    <div className="text-center mb-12">
+                        <p className="text-xs font-bold uppercase tracking-widest text-slate-500 mb-3">Who Is This For?</p>
+                        <h2 className="text-2xl md:text-4xl font-extrabold text-white tracking-tight">Built for EOD Quantitative Research</h2>
+                    </div>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div className="rounded-2xl border border-emerald-500/20 bg-emerald-500/5 p-6">
+                            <p className="text-xs font-bold uppercase tracking-widest text-emerald-400 mb-5">This platform is for</p>
+                            <ul className="space-y-3">
+                                {[
+                                    'Swing traders holding positions for days to weeks',
+                                    'Position traders with multi-week to multi-month horizons',
+                                    'Long-term investors doing quantitative stock selection',
+                                    'Technical analysts who want a local, no-subscription research environment',
+                                    'Developers and quants who want to extend or self-host a research stack',
+                                ].map(item => (
+                                    <li key={item} className="flex items-start gap-2.5 text-sm text-slate-300">
+                                        <span className="mt-0.5 shrink-0 text-emerald-400 font-bold">✓</span>
+                                        {item}
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
+                        <div className="rounded-2xl border border-rose-500/20 bg-rose-500/5 p-6">
+                            <p className="text-xs font-bold uppercase tracking-widest text-rose-400 mb-5">This platform is NOT for</p>
+                            <ul className="space-y-3">
+                                {[
+                                    'Intraday or scalping — data is EOD only, not real-time or tick-level',
+                                    'High-frequency or algorithmic execution — no live broker feed',
+                                    'Real-time alert services — screener runs on demand, not on a live stream',
+                                    'Paper trading or order routing — no order management system',
+                                    'Derivatives / F&O analysis — equity cash market focus only',
+                                ].map(item => (
+                                    <li key={item} className="flex items-start gap-2.5 text-sm text-slate-400">
+                                        <span className="mt-0.5 shrink-0 text-rose-400 font-bold">✗</span>
+                                        {item}
+                                    </li>
+                                ))}
+                            </ul>
                         </div>
                     </div>
                 </div>
@@ -868,7 +855,7 @@ export const VajraStocksPage = () => {
                                 </div>
 
                                 <div className="mt-8 border-t border-slate-800/80 pt-4 flex items-center justify-between text-[10px] text-slate-600 font-bold uppercase tracking-wider">
-                                    <span>Model: ollama / gemma4</span>
+                                    <span>Model: ollama / qwen2.5-coder:7b</span>
                                     <span>SSE Stream Status: OK</span>
                                 </div>
                             </div>

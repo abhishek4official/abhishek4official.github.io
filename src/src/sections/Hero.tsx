@@ -98,7 +98,7 @@ export const Hero = () => {
 
                                     {/* One-liner */}
                                     <p className="text-slate-400 text-sm leading-relaxed mb-6 font-normal">
-                                        A full-stack stock research platform with 4 chart modes, AI multi-agent reports, and a sub-5ms technical screener — purpose-built for Indian equity markets.
+                                        A full-stack stock research platform with 7 autonomous AI agents, 6 quant strategies, and a sub-5ms screener across 2,365+ NSE stocks — runs entirely on your machine.
                                     </p>
 
                                     {/* 3 key stats */}
@@ -106,7 +106,7 @@ export const Hero = () => {
                                         {[
                                             { num: '2,365+', label: 'NSE Stocks' },
                                             { num: '7',      label: 'AI Agents' },
-                                            { num: '4',      label: 'Chart Types' },
+                                            { num: '6',      label: 'Quant Strategies' },
                                         ].map(s => (
                                             <div key={s.label} className="bg-white/[0.02] rounded-xl p-3 border border-white/[0.05] text-center">
                                                 <p className="text-lg font-bold text-white tracking-tight">{s.num}</p>
