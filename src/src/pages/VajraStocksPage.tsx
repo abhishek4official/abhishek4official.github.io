@@ -40,7 +40,7 @@ const DOWNLOADS = [
         label: 'Windows 10 / 11',
         file: 'VajraStocks-Setup.exe',
         desc: 'One-click installer with Start Menu & Desktop shortcut',
-        url: 'https://github.com/abhishek4official/VajraStocks/releases/download/v1.3.0/VajraStocks-Setup.exe',
+        url: 'https://github.com/abhishek4official/VajraStocks/releases/latest/download/VajraStocks-Setup.exe',
         color: 'border-blue-500/30 hover:border-blue-500/60 bg-blue-500/5',
         badge: 'bg-blue-500/10 text-blue-400 border-blue-500/20',
     },
@@ -50,7 +50,7 @@ const DOWNLOADS = [
         label: 'Debian / Ubuntu',
         file: 'VajraStocks.deb',
         desc: 'dpkg installer — installs to /opt/vajrastocks',
-        url: 'https://github.com/abhishek4official/VajraStocks/releases/download/v1.3.0/VajraStocks.deb',
+        url: 'https://github.com/abhishek4official/VajraStocks/releases/latest/download/VajraStocks.deb',
         color: 'border-orange-500/30 hover:border-orange-500/60 bg-orange-500/5',
         badge: 'bg-orange-500/10 text-orange-400 border-orange-500/20',
     },
@@ -60,7 +60,7 @@ const DOWNLOADS = [
         label: 'Fedora / RHEL',
         file: 'VajraStocks.rpm',
         desc: 'RPM package for Red Hat-based distros',
-        url: 'https://github.com/abhishek4official/VajraStocks/releases/download/v1.3.0/VajraStocks.rpm',
+        url: 'https://github.com/abhishek4official/VajraStocks/releases/latest/download/VajraStocks.rpm',
         color: 'border-orange-500/30 hover:border-orange-500/60 bg-orange-500/5',
         badge: 'bg-orange-500/10 text-orange-400 border-orange-500/20',
     },
@@ -70,7 +70,7 @@ const DOWNLOADS = [
         label: 'Universal Linux',
         file: 'VajraStocks.AppImage',
         desc: 'Portable — runs on any Linux distro, no install needed',
-        url: 'https://github.com/abhishek4official/VajraStocks/releases/download/v1.3.0/VajraStocks.AppImage',
+        url: 'https://github.com/abhishek4official/VajraStocks/releases/latest/download/VajraStocks.AppImage',
         color: 'border-orange-500/30 hover:border-orange-500/60 bg-orange-500/5',
         badge: 'bg-orange-500/10 text-orange-400 border-orange-500/20',
     },
@@ -80,7 +80,7 @@ const DOWNLOADS = [
         label: 'macOS 12+',
         file: 'VajraStocks.dmg',
         desc: 'Drag-to-Applications DMG for Intel & Apple Silicon',
-        url: 'https://github.com/abhishek4official/VajraStocks/releases/download/v1.3.0/VajraStocks.dmg',
+        url: 'https://github.com/abhishek4official/VajraStocks/releases/latest/download/VajraStocks.dmg',
         color: 'border-slate-500/30 hover:border-slate-400/60 bg-slate-500/5',
         badge: 'bg-slate-500/10 text-slate-400 border-slate-500/20',
     },
@@ -904,8 +904,8 @@ export const VajraStocksPage = () => {
                         <p className="text-slate-400 mt-4 max-w-xl mx-auto text-sm font-normal">
                             One-click installers for every platform. No Python or Node.js required — everything is bundled.
                             Available on{' '}
-                            <a href="https://github.com/abhishek4official/VajraStocks/releases/tag/v1.3.0" target="_blank" rel="noopener noreferrer" className="text-emerald-400 hover:underline">
-                                GitHub Releases v1.3.0
+                            <a href="https://github.com/abhishek4official/VajraStocks/releases/latest" target="_blank" rel="noopener noreferrer" className="text-emerald-400 hover:underline">
+                                GitHub Releases (Latest)
                             </a>.
                         </p>
                     </div>
@@ -942,7 +942,7 @@ export const VajraStocksPage = () => {
 
                     <div className="text-center">
                         <a
-                            href="https://github.com/abhishek4official/VajraStocks/releases/tag/v1.3.0"
+                            href="https://github.com/abhishek4official/VajraStocks/releases/latest"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="inline-flex items-center gap-2 text-xs font-bold text-slate-400 hover:text-white transition-colors"
@@ -973,7 +973,7 @@ export const VajraStocksPage = () => {
                             className="flex items-center gap-2 px-8 py-4 rounded-xl bg-white text-slate-950 font-bold text-sm hover:bg-slate-100 hover:scale-[1.02] active:scale-[0.98] transition-all shadow-2xl"
                         >
                             <svg viewBox="0 0 20 20" fill="currentColor" className="w-4 h-4"><path fillRule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clipRule="evenodd" /></svg>
-                            Download Free — v1.3.0
+                            Download Free (Latest)
                         </a>
                         <a
                             href="https://github.com/abhishek4official/VajraStocks"
