@@ -1,0 +1,111 @@
+# Abhishek Kumar — Technical Documentation & Architecture Corpus
+> Complete plain-text architecture corpus for https://abhishek4official.github.io/ covering Autonomous AI Agents, Model Context Protocol (MCP), Microsoft Agent Framework, and Local AI Systems.
+
+================================================================================
+SECTION 1: AUTONOMOUS AI AGENTS & STRICT AGENTIC CODING PIPELINE
+================================================================================
+Overview:
+Modern AI agents frequently fail in software engineering due to non-deterministic behavior, circular hallucinated edits, and lack of human alignment. The Strict Agentic Coding Pipeline (developed by Abhishek Kumar in https://github.com/abhishek4official/CodingAgent) introduces a rigorous 5-phase engineering protocol:
+
+Phase 1: Requirement Alignment & Scope (GATE 1)
+- The agent explores the repository strictly in read-only mode.
+- Consults long-term memory (MEMORY.md).
+- Formulates a technical specification detailing functional objectives, acceptance criteria, affected components, assumptions, and ticket references.
+- STOPS at Gate 1 for explicit human approval before any code or filesystem modifications occur.
+
+Phase 2: Implementation Plan & Documentation Strategy (GATE 2)
+- Formulates step-by-step implementation changes: exact files to create, edit, or delete.
+- Sets SemVer version bump strategy (patch, minor, major).
+- Defines documentation strategy (Changelog, spec document).
+- STOPS at Gate 2 for human approval.
+
+Phase 3: Implementation, Documentation & Circuit Breaker
+- Branches into a dedicated feature branch (`feat/<name>`).
+- Implements changes strictly according to the approved plan.
+- Bumps project version in manifests and updates CHANGELOG.md.
+- Runs non-interactive tests and linters.
+- Circuit Breaker: If tests fail after 3 attempts, the agent halts immediately and requests developer intervention, eliminating infinite circular patch loops.
+
+Phase 4: Diff Review & Pre-Commit Approval (GATE 3)
+- Presents a concise summary of diffs, test outputs, and doc updates.
+- STOPS at Gate 3 for final human sign-off.
+
+Phase 5: Memory Retention & Safe Git Commit
+- Updates MEMORY.md with new architectural findings, platform quirks, or gotchas.
+- Verifies git status and commits with Conventional Commits (e.g., `feat(v1.2.0): ...`).
+- Never pushes without explicit human request.
+
+Universal Cross-Agent Compatibility:
+Native configuration files are provided for Google Antigravity (rules & skills), Claude Code (CLAUDE.md), GitHub Copilot (.github/copilot-instructions.md), Cursor (.cursorrules), and Windsurf (.windsurfrules).
+
+================================================================================
+SECTION 2: MODEL CONTEXT PROTOCOL (MCP) DEVELOPER GUIDE
+================================================================================
+Overview:
+The Model Context Protocol (MCP) is an open standard established by Anthropic that standardizes how generative AI models connect to local and remote data sources, tools, and execution environments.
+
+Key Architecture:
+- MCP Client: The AI application or orchestrator (e.g. Claude Desktop, Cursor, Antigravity, or custom agent runtime).
+- MCP Host: The runtime environment coordinating one or more clients.
+- MCP Server: A lightweight, specialized program exposing specific capabilities:
+  1. Prompts: Pre-defined prompt templates.
+  2. Resources: Read-only data payloads (files, database tables, API responses).
+  3. Tools: Executable functions with JSON schema parameter validation.
+- Transports: Standard Input/Output (stdio) for local processes, and Server-Sent Events (SSE) / Streamable HTTP for network services.
+
+MCP vs Function Calling:
+- Function Calling: Tightly coupled to specific model APIs (e.g., OpenAI tool schema). Tools must be hard-coded into each agent harness.
+- MCP: Decoupled client-server architecture. Once an MCP server is written (e.g. for a database or quant screener), any MCP-compliant agent can immediately discover and invoke its tools without rewriting integration glue code.
+
+Minimal Python MCP Server:
+```python
+from mcp.server import MCPServer
+
+mcp = MCPServer("QuantAnalysisTools")
+
+@mcp.tool()
+def compute_risk_reward(entry: float, stop_loss: float, target: float) -> dict:
+    """Calculate risk-reward ratio and percentage distances."""
+    risk = entry - stop_loss
+    reward = target - entry
+    ratio = reward / risk if risk > 0 else 0
+    return {"risk_amount": risk, "reward_amount": reward, "rr_ratio": round(ratio, 2)}
+
+if __name__ == "__main__":
+    mcp.run()
+```
+
+================================================================================
+SECTION 3: MICROSOFT AGENT FRAMEWORK & MULTI-AGENT ORCHESTRATION
+================================================================================
+Overview:
+Microsoft has unified its two prominent AI platforms—Semantic Kernel (enterprise production connectors, state, and security) and AutoGen (research-driven multi-agent conversations)—into the unified Microsoft Agent Framework.
+
+Key Architectural Comparisons:
+1. Microsoft Agent Framework:
+   - Strengths: Enterprise .NET and Python parity, native Azure AI Foundry integration, strong typing, thread-based session management, and built-in support for MCP.
+   - Ideal For: Enterprise cloud backends, Azure microservice deployments, and deterministic multi-agent handoffs.
+2. LangGraph:
+   - Strengths: Cyclic graph-based state machines, conditional branching, time-travel debugging, and flexible human-in-the-loop state interrupts.
+   - Ideal For: Complex custom state graphs, intricate research pipelines, and Python-centric workflows.
+3. Native DAG Orchestration (as used in VajraStocks):
+   - Directed Acyclic Graphs executing specialized agents with deterministic JSON inputs/outputs.
+   - Ideal For: High-performance local pipelines where graph cycles are prohibited to ensure predictable execution time.
+
+================================================================================
+SECTION 4: LOCAL AI & VAJRASTOCKS 7-AGENT ARCHITECTURE
+================================================================================
+Overview:
+VajraStocks (https://github.com/abhishek4official/VajraStocks) is a local-first, zero-cloud quantitative stock analysis platform for the National Stock Exchange of India (NSE). It runs entirely on consumer hardware without cloud API subscriptions.
+
+Local Multi-Agent DAG Design:
+1. Orchestrator Agent: Parses natural language input into target tickers and analysis scope.
+2. SQL Data Agent: Generates read-only SQL queries against a local SQLite database holding historical EOD prices for 2,365+ stocks.
+3. Market Regime Agent: Evaluates macro moving averages (SMA 20/50/200) and classifies market sentiment.
+4. Trade Planner Agent: Computes ATR-calibrated stop losses, multi-tier profit targets, and suggested position sizing.
+5. Backtester Service: Executes historical trade simulation and computes metrics (Win Rate, CAGR, Sharpe Ratio, Max Drawdown).
+6. Stock Analysis Agent: Synthesizes Renko bricks, Heikin-Ashi candles, and momentum indicators.
+7. Report Agent: Assembles structured Markdown reports streamed in real-time to the React frontend via Server-Sent Events (SSE).
+
+Local LLM Execution:
+Powered by Ollama running local open-weights models (such as Llama 3, Qwen 2.5, or Mistral) on local CPU/GPU, ensuring 100% financial data privacy and eliminating cloud latency and API subscription costs.

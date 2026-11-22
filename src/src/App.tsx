@@ -8,6 +8,10 @@ import { Projects } from './sections/Projects';
 import { Certifications } from './sections/Certifications';
 import { Contact } from './sections/Contact';
 import { VajraStocksPage } from './pages/VajraStocksPage';
+import { AiAgentsPage } from './pages/AiAgentsPage';
+import { McpPage } from './pages/McpPage';
+import { AgentFrameworksPage } from './pages/AgentFrameworksPage';
+import { LocalAiPage } from './pages/LocalAiPage';
 
 function PortfolioHome() {
   return (
@@ -31,6 +35,10 @@ function App() {
     <Routes>
       <Route path="/" element={<PortfolioHome />} />
       <Route path="/vajrastocks" element={<VajraStocksPage />} />
+      <Route path="/ai-agents" element={<AiAgentsPage />} />
+      <Route path="/mcp" element={<McpPage />} />
+      <Route path="/agent-frameworks" element={<AgentFrameworksPage />} />
+      <Route path="/local-ai" element={<LocalAiPage />} />
     </Routes>
   );
 }

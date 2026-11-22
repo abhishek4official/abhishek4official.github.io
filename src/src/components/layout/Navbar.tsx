@@ -23,10 +23,12 @@ export const Navbar = () => {
     }, [mobileMenuOpen]);
 
     const navLinks = [
-        { name: 'About', href: '#about' },
-        { name: 'Expertise', href: '#expertise' },
-        { name: 'Experience', href: '#experience' },
-        { name: 'Projects', href: '#projects' },
+        { name: 'About', href: '#about', isRoute: false },
+        { name: 'Expertise', href: '#expertise', isRoute: false },
+        { name: 'Experience', href: '#experience', isRoute: false },
+        { name: 'Projects', href: '#projects', isRoute: false },
+        { name: 'AI Agents', href: '/ai-agents', isRoute: true },
+        { name: 'MCP', href: '/mcp', isRoute: true },
     ];
 
     return (
@@ -42,7 +44,9 @@ export const Navbar = () => {
                         <a
                             key={link.name}
                             href={link.href}
-                            className="text-sm font-medium text-slate-400 hover:text-white transition-colors"
+                            className={`text-sm font-medium transition-colors ${
+                                link.isRoute ? 'text-emerald-400 hover:text-emerald-300' : 'text-slate-400 hover:text-white'
+                            }`}
                         >
                             {link.name}
                         </a>

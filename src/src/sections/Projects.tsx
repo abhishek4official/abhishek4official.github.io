@@ -185,6 +185,14 @@ export const Projects = () => {
                                                         Case Study Review
                                                         <ExternalLinkIcon />
                                                     </Link>
+                                                ) : isCodingAgent ? (
+                                                    <Link
+                                                        to="/ai-agents"
+                                                        className="text-xs font-bold text-emerald-400 hover:text-emerald-300 transition-colors"
+                                                    >
+                                                        Architecture Case Study
+                                                        <ExternalLinkIcon />
+                                                    </Link>
                                                 ) : null}
                                             </div>
 

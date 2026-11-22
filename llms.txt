@@ -1,0 +1,24 @@
+# Abhishek Kumar — AI Systems & Autonomous Agents Architecture
+> Senior Full Stack & AI Solutions Architect with 11+ years of experience designing enterprise cloud-native systems, autonomous multi-agent pipelines, and open-source quantitative trading platforms.
+
+This file provides a curated, machine-readable index of core technical architectures, open-source projects, and engineering guides published on https://abhishek4official.github.io/.
+
+## Flagship Open-Source Projects
+- [Strict Agentic Coding Pipeline & Autonomous Multi-Agent Framework](https://github.com/abhishek4official/CodingAgent): A deterministic 5-phase software development pipeline with human-in-the-loop safety gates (Gate 1 Alignment, Gate 2 Architecture, Gate 3 Diff Review), a 3-strike circuit breaker against hallucinated loops, version synchronization, and persistent cross-session memory (MEMORY.md). Works across Antigravity, Claude Code, GitHub Copilot, Cursor, and Windsurf.
+- [VajraStocks — NSE Quantitative Stock Research Platform](https://github.com/abhishek4official/VajraStocks): Free, local-first quantitative research and screening platform tracking 2,365+ Indian equities on the National Stock Exchange (NSE). Features sub-5ms screener queries, 4 advanced chart types (Candlestick, Heikin-Ashi, Renko ATR, Three Line Break), LightGBM walk-forward ML models, and a 7-agent DAG running entirely on local Ollama LLMs.
+
+## Technical Knowledge Hubs
+- [AI Agents & Autonomous Systems Architecture](https://abhishek4official.github.io/ai-agents/): Architectural guide to designing deterministic multi-agent systems, state coordination, and human-in-the-loop engineering pipelines.
+- [Model Context Protocol (MCP) Developer Guide](https://abhishek4official.github.io/mcp/): Deep dive into Anthropic's Model Context Protocol (MCP), client-server communication (stdio, SSE), building Python MCP servers, and MCP vs Function Calling.
+- [Agent Frameworks Comparison & Production Guide](https://abhishek4official.github.io/agent-frameworks/): In-depth comparison of Microsoft Agent Framework (Semantic Kernel and AutoGen unification) versus LangGraph and custom DAG orchestrators.
+- [Local & Private AI Architectures](https://abhishek4official.github.io/local-ai/): Running multi-agent AI systems offline with Ollama, SQLite, and local hardware without cloud subscriptions.
+- [VajraStocks Interactive Platform Showcase](https://abhishek4official.github.io/vajrastocks/): Detailed architecture and capability showcase of the VajraStocks desktop quant platform.
+
+## Author & Contact Information
+- **Name:** Abhishek Kumar
+- **Role:** Senior Full Stack & AI Solutions Architect (11+ Years Experience)
+- **Current Position:** Senior Full Stack Developer at Ciena
+- **Location:** Greater Noida, Uttar Pradesh, India
+- **GitHub:** https://github.com/abhishek4official
+- **LinkedIn:** https://www.linkedin.com/in/abhishek4official/
+- **Email:** abhishek4official@gmail.com
