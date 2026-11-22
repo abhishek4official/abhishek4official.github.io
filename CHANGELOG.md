@@ -5,6 +5,15 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.2.1] - 2026-11-22
+
+### Changed
+- Core Web Vitals Optimization:
+  - Replaced 460 KB uncompressed `favicon.png` with an optimized 48x48 px PNG (4.4 KB), vector `favicon.svg` (< 2 KB), and `apple-touch-icon.png` (180x180 px).
+  - Resampled and compressed platform screenshots, achieving > 70% total weight reduction.
+  - Eliminated Cumulative Layout Shift (CLS = 0.00) by assigning explicit `width="1280"`, `height="800"`, and `aspect-[16/10]` CSS ratios to all mockup containers.
+  - Added `fetchPriority="high"` and `decoding="async"` to hero LCP image, and `loading="lazy"` to all below-the-fold capability images.
+
 ## [1.2.0] - 2026-11-22
 
 ### Added

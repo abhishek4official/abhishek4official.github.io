@@ -23,3 +23,8 @@
 - **Git Commit Protocol:**
   - Always work in a feature branch (`feat/<name>`). Never commit directly to `main` without explicit instructions.
   - Never run `git push` unless specifically requested by the user.
+
+## 4. Core Web Vitals & Image Optimization Standards
+- **Favicons:** Modern browsers load `favicon.svg` (< 1 KB) or 48x48 `favicon.png` (< 5 KB), and iOS uses `apple-touch-icon.png` (180x180 px). Never load raw 1024x1024 images in `<head>`.
+- **CLS (Cumulative Layout Shift = 0.00):** Explicit `width="1280"`, `height="800"`, and CSS `aspect-[16/10]` must be present on mockup images to reserve layout dimensions prior to asset download.
+- **LCP & Deferral:** High-priority hero images use `fetchPriority="high"` and `decoding="async"`. All below-the-fold tab mockups use `loading="lazy"` and `decoding="async"`.

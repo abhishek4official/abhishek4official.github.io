@@ -400,7 +400,11 @@ export const VajraStocksPage = () => {
                         <img 
                             src="/vajrastocks_hero.png" 
                             alt="VajraStocks Explorer Dashboard — candlestick chart with EOD indicators and Trade Plan"
-                            className="w-full rounded-lg object-cover shadow-inner transition-transform duration-700 group-hover:scale-[1.008]" 
+                            width="1280"
+                            height="800"
+                            decoding="async"
+                            fetchPriority="high"
+                            className="w-full rounded-lg object-cover shadow-inner transition-transform duration-700 group-hover:scale-[1.008] aspect-[16/10]" 
                         />
                     </div>
                 </div>
@@ -481,7 +485,11 @@ export const VajraStocksPage = () => {
                                         <img
                                             src={cap.image}
                                             alt={cap.title}
-                                            className="w-full rounded-md object-cover transition-all duration-700 group-hover:scale-[1.01]"
+                                            width="1280"
+                                            height="800"
+                                            loading="lazy"
+                                            decoding="async"
+                                            className="w-full rounded-md object-cover transition-all duration-700 group-hover:scale-[1.01] aspect-[16/10]"
                                         />
                                     </div>
                                 </div>
