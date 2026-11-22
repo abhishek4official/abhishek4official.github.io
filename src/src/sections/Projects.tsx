@@ -82,6 +82,7 @@ export const Projects = () => {
             <div className="space-y-8">
                 {resumeData.projects.map((project, index) => {
                     const isVajra = project.title.toLowerCase().includes('vajrastocks');
+                    const isCodingAgent = project.title.toLowerCase().includes('agentic') || project.title.toLowerCase().includes('coding pipeline');
                     const hasSelectedTech = selectedTech ? project.techStack.includes(selectedTech) : true;
                     
                     return (
@@ -92,7 +93,11 @@ export const Projects = () => {
                                     : 'opacity-100 scale-100'
                             }`}>
                                 <DynamicCard className={`border border-white/[0.06] bg-surface p-8 shadow-2xl relative ${
-                                    isVajra ? 'hover:border-purple-500/40' : 'hover:border-amber-500/30'
+                                    isVajra 
+                                        ? 'hover:border-purple-500/40' 
+                                        : isCodingAgent
+                                            ? 'hover:border-emerald-500/40'
+                                            : 'hover:border-amber-500/30'
                                 }`}>
                                     <div className="flex flex-col md:flex-row gap-8 justify-between items-start">
                                         
@@ -103,9 +108,11 @@ export const Projects = () => {
                                                 <span className={`text-[9px] font-black uppercase tracking-widest px-2.5 py-1 rounded-full border ${
                                                     isVajra 
                                                         ? 'bg-purple-500/10 border-purple-500/20 text-purple-400' 
-                                                        : 'bg-white/[0.03] border-white/[0.08] text-slate-400'
+                                                        : isCodingAgent
+                                                            ? 'bg-emerald-500/10 border-emerald-500/20 text-emerald-400'
+                                                            : 'bg-white/[0.03] border-white/[0.08] text-slate-400'
                                                 }`}>
-                                                    {isVajra ? 'Quant Platform & Flagship' : 'Enterprise Engineering'}
+                                                    {isVajra ? 'Quant Platform & Flagship' : isCodingAgent ? 'Autonomous Agent Platform & Flagship' : 'Enterprise Engineering'}
                                                 </span>
                                                 {project.github && (
                                                     <span className="text-[9px] font-bold uppercase tracking-widest text-amber-400 bg-amber-400/10 border border-amber-400/20 rounded-full px-2.5 py-1">

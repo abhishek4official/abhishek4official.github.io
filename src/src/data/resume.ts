@@ -14,7 +14,7 @@ export const resumeData = {
         },
         {
             category: "AI & LLM Systems",
-            skills: ["OpenAI (GPT-4)", "Google Gemini", "LangChain", "LangGraph", "Azure AI Foundry", "Microsoft Agent Framework", "Ollama (Local LLMs)", "RAG Systems", "Multi-Agent DAG Orchestration"]
+            skills: ["Autonomous Coding Agents", "Agentic Pipelines", "Prompt Engineering & Multi-Agent Workflows", "OpenAI (GPT-4)", "Google Gemini", "LangChain", "LangGraph", "Azure AI Foundry", "Microsoft Agent Framework", "Ollama (Local LLMs)", "RAG Systems", "Multi-Agent DAG Orchestration"]
         },
         {
             category: "Quantitative & Data",
@@ -109,6 +109,20 @@ export const resumeData = {
                 "Real-time SSE streaming of agent execution and investment reports",
                 "Incremental yFinance sync with per-ticker fallback loops and full audit trail",
                 "One-click installers: Windows .exe, Linux .deb/.rpm/.AppImage, macOS .dmg"
+            ]
+        },
+        {
+            title: "Strict Agentic Coding Pipeline & Autonomous Multi-Agent Framework",
+            description: "A universal, deterministic 5-phase software development pipeline with human-in-the-loop safety gates, test circuit-breakers, version synchronization, and persistent cross-session memory for AI coding agents. Provides unified workflow parity across Google Antigravity, Claude Code, GitHub Copilot, Cursor, and Windsurf.",
+            techStack: ["Antigravity", "Claude Code", "GitHub Copilot", "Cursor", "Windsurf", "TypeScript", "Python", "PowerShell", "Prompt Engineering", "CI/CD"],
+            outcome: "Enforces zero-drift, human-governed autonomous software development. Eliminates circular hallucinated edits via a 3-strike circuit breaker and preserves architectural patterns and OS gotchas in persistent memory.",
+            github: "https://github.com/abhishek4official/CodingAgent",
+            features: [
+                "Strict 5-Phase pipeline: Alignment (Gate 1), Architecture Plan (Gate 2), Implementation & Circuit Breaker, Diff Review (Gate 3), and Safe Git Commit",
+                "Universal cross-agent compatibility: Native configurations for Antigravity, Claude Code, Copilot, Cursor, and Windsurf",
+                "Circuit breaker mechanism: Automatically halts after 3 consecutive test or linter failures to prevent hallucinated patch loops",
+                "Dual operational tags: [quick] for single-turn bugfixes and [auto] for autonomous staging",
+                "Long-term memory retention layer (MEMORY.md) preserving design patterns and platform quirks across sessions"
             ]
         },
         {
